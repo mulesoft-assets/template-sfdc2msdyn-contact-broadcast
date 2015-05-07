@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:batch="http://www.mulesoft.org/schema/mule/batch"
+	xmlns:sfdc="http://www.mulesoft.org/schema/mule/sfdc"
+	xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	version="EE-3.6.1"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/sfdc http://www.mulesoft.org/schema/mule/sfdc/current/mule-sfdc.xsd
+http://www.mulesoft.org/schema/mule/batch http://www.mulesoft.org/schema/mule/batch/current/mule-batch.xsd">
+    <flow name="triggerFlow" initialState="started"
+		processingStrategy="synchronous" >
+		<poll doc:name="Polls Salesforce for Contacts">
+			<fixed-frequency-scheduler frequency="${poll.frequencyMillis}"
+				startDelay="${poll.startDelayMillis}" />
+			<watermark variable="lastQueryDate" default-expression="${watermark.default.expression}"
+				selector="MAX" selector-expression="#[payload.LastModifiedDate]" />
+            <sfdc:query config-ref="Salesforce" query="dsql:SELECT Id,Name,Email,Phone,Fax,FirstName,LastName,Description, LastModifiedDate FROM Contact WHERE LastModifiedDate &gt; #[flowVars['lastQueryDate']]" fetchSize="${page.size}" doc:name="Query Contacts with filtering criteria from Salesforce"/>
+
+		</poll>
+
+		<batch:execute name="migrateContactsBatch" doc:name="Trigger Batch migrateContactsBatch" />
+		<exception-strategy ref="defaultChoiceExceptionStrategy"
+			doc:name="Reference Exception Strategy" />
+	</flow>
+</mule>

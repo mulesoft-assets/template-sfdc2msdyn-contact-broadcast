@@ -1,0 +1,492 @@
+<?xml version="1.0" encoding="UTF-8"?><Graph __version="3.5.0" author="Admin" created="Mon May 04 07:10:27 CEST 2015" description="Map To contact" guiVersion="3.4.4.P" id="1430717723367" licenseCode="Unlicensed" licenseType="Unknown" modified="Mon May 04 07:10:27 CEST 2015" modifiedBy="Admin" name="Map_To_contact_1" revision="1.0" showComponentDetails="false">
+<Global>
+<Metadata __index="0" __referenceCounter="1" __sourcePath="{}/contact" _dataStructure="OBJECT" _id="__id" _type="Output" id="eb02a42b-eb06-4d51-93f4-a124df504988">
+<Record fieldDelimiter="," name="contact" recordDelimiter="\n\\|\r\n\\|\r" type="delimited">
+<Field __artificialType="_id" __systemManaged="true" name="__id" type="string"/>
+<Field __implementationClass="java.lang.String" __index="0" __sourcePath="{}/contact/address2_x005fline2" containerType="SINGLE" label="address2_line2" name="address2_line2" type="string"/>
+<Field __implementationClass="java.lang.String" __index="1" __sourcePath="{}/contact/address3_x005fstateorprovince" containerType="SINGLE" label="address3_stateorprovince" name="address3_stateorprovince" type="string"/>
+<Field __implementationClass="java.lang.String" __index="2" __sourcePath="{}/contact/createdby_x005freferenceto_x005fsystemuser" containerType="SINGLE" label="createdby_referenceto_systemuser" name="createdby_referenceto_systemuser" type="string"/>
+<Field __implementationClass="java.math.BigDecimal" __index="3" __sourcePath="{}/contact/exchangerate" containerType="SINGLE" label="exchangerate" name="exchangerate" type="decimal"/>
+<Field __implementationClass="java.lang.String" __index="4" __sourcePath="{}/contact/address3_x005fpostofficebox" containerType="SINGLE" label="address3_postofficebox" name="address3_postofficebox" type="string"/>
+<Field __implementationClass="java.lang.String" __index="5" __sourcePath="{}/contact/ftpsiteurl" containerType="SINGLE" label="ftpsiteurl" name="ftpsiteurl" type="string"/>
+<Field __implementationClass="java.lang.String" __index="6" __sourcePath="{}/contact/yomimiddlename" containerType="SINGLE" label="yomimiddlename" name="yomimiddlename" type="string"/>
+<Field __implementationClass="java.math.BigDecimal" __index="7" __sourcePath="{}/contact/aging90" containerType="SINGLE" label="aging90" name="aging90" type="decimal"/>
+<Field __implementationClass="java.lang.String" __index="8" __sourcePath="{}/contact/address2_x005fcounty" containerType="SINGLE" label="address2_county" name="address2_county" type="string"/>
+<Field __implementationClass="java.lang.String" __index="9" __sourcePath="{}/contact/defaultpricelevelid_x005freferenceto_x005fpricelevel" containerType="SINGLE" label="defaultpricelevelid_referenceto_pricelevel" name="defaultpricelevelid_referenceto_pricelevel" type="string"/>
+<Field __implementationClass="java.lang.String" __index="10" __sourcePath="{}/contact/middlename" containerType="SINGLE" label="middlename" name="middlename" type="string"/>
+<Field __implementationClass="java.lang.String" __index="11" __sourcePath="{}/contact/address1_x005fline3" containerType="SINGLE" label="address1_line3" name="address1_line3" type="string"/>
+<Field __implementationClass="java.lang.Double" __index="12" __sourcePath="{}/contact/address1_x005flatitude" containerType="SINGLE" label="address1_latitude" name="address1_latitude" type="number"/>
+<Field __implementationClass="java.lang.Boolean" __index="13" __sourcePath="{}/contact/donotfax" containerType="SINGLE" label="donotfax" name="donotfax" type="boolean"/>
+<Field __implementationClass="java.math.BigDecimal" __index="14" __sourcePath="{}/contact/aging30" containerType="SINGLE" label="aging30" name="aging30" type="decimal"/>
+<Field __implementationClass="java.lang.Integer" __index="15" __sourcePath="{}/contact/address3_x005ffreighttermscode" containerType="SINGLE" label="address3_freighttermscode" name="address3_freighttermscode" type="integer"/>
+<Field __implementationClass="java.lang.Integer" __index="16" __sourcePath="{}/contact/importsequencenumber" containerType="SINGLE" label="importsequencenumber" name="importsequencenumber" type="integer"/>
+<Field __implementationClass="java.lang.Integer" __index="17" __sourcePath="{}/contact/address1_x005faddresstypecode" containerType="SINGLE" label="address1_addresstypecode" name="address1_addresstypecode" type="integer"/>
+<Field __implementationClass="java.lang.String" __index="18" __sourcePath="{}/contact/company" containerType="SINGLE" label="company" name="company" type="string"/>
+<Field __implementationClass="java.lang.String" __index="19" __sourcePath="{}/contact/createdonbehalfbyyominame" containerType="SINGLE" label="createdonbehalfbyyominame" name="createdonbehalfbyyominame" type="string"/>
+<Field __implementationClass="java.lang.String" __index="20" __sourcePath="{}/contact/parentcustomerid_x005freferenceto_x005faccount" containerType="SINGLE" label="parentcustomerid_referenceto_account" name="parentcustomerid_referenceto_account" type="string"/>
+<Field __implementationClass="java.lang.String" __index="21" __sourcePath="{}/contact/parentcustomerid_x005freferenceto_x005fcontact" containerType="SINGLE" label="parentcustomerid_referenceto_contact" name="parentcustomerid_referenceto_contact" type="string"/>
+<Field __implementationClass="java.lang.String" __index="22" __sourcePath="{}/contact/yomifullname" containerType="SINGLE" label="yomifullname" name="yomifullname" type="string"/>
+<Field __implementationClass="java.lang.String" __index="23" __sourcePath="{}/contact/address1_x005fcounty" containerType="SINGLE" label="address1_county" name="address1_county" type="string"/>
+<Field __implementationClass="java.lang.String" __index="24" __sourcePath="{}/contact/address2_x005fline1" containerType="SINGLE" label="address2_line1" name="address2_line1" type="string"/>
+<Field __implementationClass="java.math.BigDecimal" __index="25" __sourcePath="{}/contact/aging90_x005fbase" containerType="SINGLE" label="aging90_base" name="aging90_base" type="decimal"/>
+<Field __implementationClass="java.lang.String" __index="26" __sourcePath="{}/contact/createdbyname" containerType="SINGLE" label="createdbyname" name="createdbyname" type="string"/>
+<Field __implementationClass="java.lang.String" __index="27" __sourcePath="{}/contact/mobilephone" containerType="SINGLE" label="mobilephone" name="mobilephone" type="string"/>
+<Field __implementationClass="java.lang.String" __index="28" __sourcePath="{}/contact/managerphone" containerType="SINGLE" label="managerphone" name="managerphone" type="string"/>
+<Field __implementationClass="java.lang.Boolean" __index="29" __sourcePath="{}/contact/donotsendmm" containerType="SINGLE" label="donotsendmm" name="donotsendmm" type="boolean"/>
+<Field __implementationClass="java.lang.Integer" __index="30" __sourcePath="{}/contact/preferredcontactmethodcode" containerType="SINGLE" label="preferredcontactmethodcode" name="preferredcontactmethodcode" type="integer"/>
+<Field __implementationClass="java.lang.String" __index="31" __sourcePath="{}/contact/modifiedby_x005freferenceto_x005fsystemuser" containerType="SINGLE" label="modifiedby_referenceto_systemuser" name="modifiedby_referenceto_systemuser" type="string"/>
+<Field __implementationClass="java.lang.String" __index="32" __sourcePath="{}/contact/address3_x005fcity" containerType="SINGLE" label="address3_city" name="address3_city" type="string"/>
+<Field __implementationClass="java.lang.String" __index="33" __sourcePath="{}/contact/mastercontactidyominame" containerType="SINGLE" label="mastercontactidyominame" name="mastercontactidyominame" type="string"/>
+<Field __implementationClass="java.lang.String" __index="34" __sourcePath="{}/contact/yomifirstname" containerType="SINGLE" label="yomifirstname" name="yomifirstname" type="string"/>
+<Field __implementationClass="java.lang.String" __index="35" __sourcePath="{}/contact/address1_x005fname" containerType="SINGLE" label="address1_name" name="address1_name" type="string"/>
+<Field __implementationClass="java.lang.String" __index="36" __sourcePath="{}/contact/externaluseridentifier" containerType="SINGLE" label="externaluseridentifier" name="externaluseridentifier" type="string"/>
+<Field __implementationClass="java.lang.String" __index="37" __sourcePath="{}/contact/address1_x005ftelephone1" containerType="SINGLE" label="address1_telephone1" name="address1_telephone1" type="string"/>
+<Field __implementationClass="java.lang.String" __index="38" __sourcePath="{}/contact/address1_x005fpostalcode" containerType="SINGLE" label="address1_postalcode" name="address1_postalcode" type="string"/>
+<Field __implementationClass="java.lang.String" __index="39" __sourcePath="{}/contact/preferredequipmentid_x005freferenceto_x005fequipment" containerType="SINGLE" label="preferredequipmentid_referenceto_equipment" name="preferredequipmentid_referenceto_equipment" type="string"/>
+<Field __implementationClass="java.lang.String" __index="40" __sourcePath="{}/contact/nickname" containerType="SINGLE" label="nickname" name="nickname" type="string"/>
+<Field __implementationClass="java.lang.String" __index="41" __sourcePath="{}/contact/address3_x005fcountry" containerType="SINGLE" label="address3_country" name="address3_country" type="string"/>
+<Field __implementationClass="java.lang.String" __index="42" __sourcePath="{}/contact/preferredequipmentidname" containerType="SINGLE" label="preferredequipmentidname" name="preferredequipmentidname" type="string"/>
+<Field __implementationClass="java.lang.Integer" __index="43" __sourcePath="{}/contact/address2_x005faddresstypecode" containerType="SINGLE" label="address2_addresstypecode" name="address2_addresstypecode" type="integer"/>
+<Field __implementationClass="java.lang.Integer" __index="44" __sourcePath="{}/contact/customertypecode" containerType="SINGLE" label="customertypecode" name="customertypecode" type="integer"/>
+<Field __implementationClass="java.lang.Integer" __index="45" __sourcePath="{}/contact/statecode" containerType="SINGLE" label="statecode" name="statecode" type="integer"/>
+<Field __implementationClass="java.lang.Boolean" __index="46" __sourcePath="{}/contact/isbackofficecustomer" containerType="SINGLE" label="isbackofficecustomer" name="isbackofficecustomer" type="boolean"/>
+<Field __implementationClass="java.lang.Integer" __index="47" __sourcePath="{}/contact/utcconversiontimezonecode" containerType="SINGLE" label="utcconversiontimezonecode" name="utcconversiontimezonecode" type="integer"/>
+<Field __implementationClass="java.lang.String" __index="48" __sourcePath="{}/contact/address3_x005fline2" containerType="SINGLE" label="address3_line2" name="address3_line2" type="string"/>
+<Field __dmType="Calendar" __implementationClass="java.util.Calendar" __index="49" __sourcePath="{}/contact/lastusedincampaign" containerType="SINGLE" label="lastusedincampaign" name="lastusedincampaign" type="string"/>
+<Field __implementationClass="java.lang.String" __index="50" __sourcePath="{}/contact/employeeid" containerType="SINGLE" label="employeeid" name="employeeid" type="string"/>
+<Field __implementationClass="java.lang.Boolean" __index="51" __sourcePath="{}/contact/participatesinworkflow" containerType="SINGLE" label="participatesinworkflow" name="participatesinworkflow" type="boolean"/>
+<Field __implementationClass="java.lang.String" __index="52" __sourcePath="{}/contact/owneridyominame" containerType="SINGLE" label="owneridyominame" name="owneridyominame" type="string"/>
+<Field __implementationClass="java.lang.Double" __index="53" __sourcePath="{}/contact/address3_x005flongitude" containerType="SINGLE" label="address3_longitude" name="address3_longitude" type="number"/>
+<Field __implementationClass="java.lang.String" __index="54" __sourcePath="{}/contact/department" containerType="SINGLE" label="department" name="department" type="string"/>
+<Field __implementationClass="java.lang.String" __index="55" __sourcePath="{}/contact/parentcustomeridtype" containerType="SINGLE" label="parentcustomeridtype" name="parentcustomeridtype" type="string"/>
+<Field __implementationClass="java.lang.Boolean" __index="56" __sourcePath="{}/contact/donotpostalmail" containerType="SINGLE" label="donotpostalmail" name="donotpostalmail" type="boolean"/>
+<Field __implementationClass="java.lang.String" __index="57" __sourcePath="{}/contact/address2_x005fpostofficebox" containerType="SINGLE" label="address2_postofficebox" name="address2_postofficebox" type="string"/>
+<Field __implementationClass="java.lang.String" __index="58" __sourcePath="{}/contact/owningbusinessunit_x005freferenceto_x005fbusinessunit" containerType="SINGLE" label="owningbusinessunit_referenceto_businessunit" name="owningbusinessunit_referenceto_businessunit" type="string"/>
+<Field __implementationClass="java.lang.Integer" __index="59" __sourcePath="{}/contact/accountrolecode" containerType="SINGLE" label="accountrolecode" name="accountrolecode" type="integer"/>
+<Field __implementationClass="java.lang.Integer" __index="60" __sourcePath="{}/contact/statuscode" containerType="SINGLE" label="statuscode" name="statuscode" type="integer"/>
+<Field __implementationClass="java.lang.String" __index="61" __sourcePath="{}/contact/address2_x005fcountry" containerType="SINGLE" label="address2_country" name="address2_country" type="string"/>
+<Field __implementationClass="java.lang.String" __index="62" __sourcePath="{}/contact/address3_x005ftelephone3" containerType="SINGLE" label="address3_telephone3" name="address3_telephone3" type="string"/>
+<Field __implementationClass="java.lang.String" __index="63" __sourcePath="{}/contact/address2_x005faddressid" containerType="SINGLE" label="address2_addressid" name="address2_addressid" type="string"/>
+<Field __implementationClass="java.lang.Double" __index="64" __sourcePath="{}/contact/address2_x005flatitude" containerType="SINGLE" label="address2_latitude" name="address2_latitude" type="number"/>
+<Field __implementationClass="java.math.BigDecimal" __index="65" __sourcePath="{}/contact/aging60" containerType="SINGLE" label="aging60" name="aging60" type="decimal"/>
+<Field __implementationClass="java.lang.String" __index="66" __sourcePath="{}/contact/childrensnames" containerType="SINGLE" label="childrensnames" name="childrensnames" type="string"/>
+<Field __implementationClass="java.lang.String" __index="67" __sourcePath="{}/contact/address1_x005fline1" containerType="SINGLE" label="address1_line1" name="address1_line1" type="string"/>
+<Field __implementationClass="java.lang.Double" __index="68" __sourcePath="{}/contact/address3_x005flatitude" containerType="SINGLE" label="address3_latitude" name="address3_latitude" type="number"/>
+<Field __implementationClass="java.lang.String" __index="69" __sourcePath="{}/contact/modifiedbyyominame" containerType="SINGLE" label="modifiedbyyominame" name="modifiedbyyominame" type="string"/>
+<Field __implementationClass="java.lang.String" __index="70" __sourcePath="{}/contact/modifiedonbehalfbyyominame" containerType="SINGLE" label="modifiedonbehalfbyyominame" name="modifiedonbehalfbyyominame" type="string"/>
+<Field __implementationClass="java.lang.String" __index="71" __sourcePath="{}/contact/parentcustomeridname" containerType="SINGLE" label="parentcustomeridname" name="parentcustomeridname" type="string"/>
+<Field __dmType="Calendar" __implementationClass="java.util.Calendar" __index="72" __sourcePath="{}/contact/overriddencreatedon" containerType="SINGLE" label="overriddencreatedon" name="overriddencreatedon" type="string"/>
+<Field __implementationClass="java.lang.String" __index="73" __sourcePath="{}/contact/address1_x005ftelephone2" containerType="SINGLE" label="address1_telephone2" name="address1_telephone2" type="string"/>
+<Field __implementationClass="java.lang.String" __index="74" __sourcePath="{}/contact/address3_x005fpostalcode" containerType="SINGLE" label="address3_postalcode" name="address3_postalcode" type="string"/>
+<Field __implementationClass="java.lang.String" __index="75" __sourcePath="{}/contact/address2_x005fcity" containerType="SINGLE" label="address2_city" name="address2_city" type="string"/>
+<Field __implementationClass="java.lang.Integer" __index="76" __sourcePath="{}/contact/address3_x005fshippingmethodcode" containerType="SINGLE" label="address3_shippingmethodcode" name="address3_shippingmethodcode" type="integer"/>
+<Field __implementationClass="java.lang.String" __index="77" __sourcePath="{}/contact/home2" containerType="SINGLE" label="home2" name="home2" type="string"/>
+<Field __implementationClass="java.lang.String" __index="78" __sourcePath="{}/contact/parentcontactid_x005freferenceto_x005fcontact" containerType="SINGLE" label="parentcontactid_referenceto_contact" name="parentcontactid_referenceto_contact" type="string"/>
+<Field __implementationClass="java.lang.String" __index="79" __sourcePath="{}/contact/address3_x005ffax" containerType="SINGLE" label="address3_fax" name="address3_fax" type="string"/>
+<Field __implementationClass="java.lang.String" __index="80" __sourcePath="{}/contact/owninguser_x005freferenceto_x005fsystemuser" containerType="SINGLE" label="owninguser_referenceto_systemuser" name="owninguser_referenceto_systemuser" type="string"/>
+<Field __implementationClass="java.lang.Integer" __index="81" __sourcePath="{}/contact/address2_x005futcoffset" containerType="SINGLE" label="address2_utcoffset" name="address2_utcoffset" type="integer"/>
+<Field __implementationClass="java.lang.Boolean" __index="82" __sourcePath="{}/contact/creditonhold" containerType="SINGLE" label="creditonhold" name="creditonhold" type="boolean"/>
+<Field __implementationClass="java.lang.Integer" __index="83" __sourcePath="{}/contact/address3_x005faddresstypecode" containerType="SINGLE" label="address3_addresstypecode" name="address3_addresstypecode" type="integer"/>
+<Field __implementationClass="java.lang.String" __index="84" __sourcePath="{}/contact/assistantphone" containerType="SINGLE" label="assistantphone" name="assistantphone" type="string"/>
+<Field __implementationClass="java.lang.Integer" __index="85" __sourcePath="{}/contact/haschildrencode" containerType="SINGLE" label="haschildrencode" name="haschildrencode" type="integer"/>
+<Field __implementationClass="java.lang.String" __index="86" __sourcePath="{}/contact/parentcustomeridyominame" containerType="SINGLE" label="parentcustomeridyominame" name="parentcustomeridyominame" type="string"/>
+<Field __implementationClass="java.lang.String" __index="87" __sourcePath="{}/contact/ownerid" containerType="SINGLE" label="ownerid" name="ownerid" type="string"/>
+<Field __implementationClass="java.lang.Double" __index="88" __sourcePath="{}/contact/address2_x005flongitude" containerType="SINGLE" label="address2_longitude" name="address2_longitude" type="number"/>
+<Field __implementationClass="java.lang.String" __index="89" __sourcePath="{}/contact/transactioncurrencyidname" containerType="SINGLE" label="transactioncurrencyidname" name="transactioncurrencyidname" type="string"/>
+<Field __implementationClass="java.lang.String" __index="90" __sourcePath="{}/contact/address1_x005fcity" containerType="SINGLE" label="address1_city" name="address1_city" type="string"/>
+<Field __implementationClass="java.lang.String" __index="91" __sourcePath="{}/contact/address1_x005faddressid" containerType="SINGLE" label="address1_addressid" name="address1_addressid" type="string"/>
+<Field __implementationClass="java.math.BigDecimal" __index="92" __sourcePath="{}/contact/annualincome" containerType="SINGLE" label="annualincome" name="annualincome" type="decimal"/>
+<Field __implementationClass="java.lang.String" __index="93" __sourcePath="{}/contact/governmentid" containerType="SINGLE" label="governmentid" name="governmentid" type="string"/>
+<Field __implementationClass="java.lang.String" __index="94" __sourcePath="{}/contact/address1_x005fcountry" containerType="SINGLE" label="address1_country" name="address1_country" type="string"/>
+<Field __implementationClass="java.lang.String" __index="95" __sourcePath="{}/contact/assistantname" containerType="SINGLE" label="assistantname" name="assistantname" type="string"/>
+<Field __implementationClass="java.lang.String" __index="96" __sourcePath="{}/contact/business2" containerType="SINGLE" label="business2" name="business2" type="string"/>
+<Field __implementationClass="java.lang.String" __index="97" __sourcePath="{}/contact/telephone2" containerType="SINGLE" label="telephone2" name="telephone2" type="string"/>
+<Field __implementationClass="java.lang.Integer" __index="98" __sourcePath="{}/contact/territorycode" containerType="SINGLE" label="territorycode" name="territorycode" type="integer"/>
+<Field __implementationClass="java.lang.Boolean" __index="99" __sourcePath="{}/contact/donotphone" containerType="SINGLE" label="donotphone" name="donotphone" type="boolean"/>
+<Field __implementationClass="java.lang.Integer" __index="100" __sourcePath="{}/contact/address1_x005fshippingmethodcode" containerType="SINGLE" label="address1_shippingmethodcode" name="address1_shippingmethodcode" type="integer"/>
+<Field __implementationClass="java.lang.Integer" __index="101" __sourcePath="{}/contact/paymenttermscode" containerType="SINGLE" label="paymenttermscode" name="paymenttermscode" type="integer"/>
+<Field __implementationClass="java.lang.String" __index="102" __sourcePath="{}/contact/address2_x005fline3" containerType="SINGLE" label="address2_line3" name="address2_line3" type="string"/>
+<Field __implementationClass="java.lang.String" __index="103" __sourcePath="{}/contact/fullname" containerType="SINGLE" label="fullname" name="fullname" type="string"/>
+<Field __implementationClass="java.lang.String" __index="104" __sourcePath="{}/contact/address1_x005fline2" containerType="SINGLE" label="address1_line2" name="address1_line2" type="string"/>
+<Field __implementationClass="java.lang.String" __index="105" __sourcePath="{}/contact/description" containerType="SINGLE" label="description" name="description" type="string"/>
+<Field __implementationClass="java.lang.String" __index="106" __sourcePath="{}/contact/defaultpricelevelidname" containerType="SINGLE" label="defaultpricelevelidname" name="defaultpricelevelidname" type="string"/>
+<Field __implementationClass="java.lang.String" __index="107" __sourcePath="{}/contact/emailaddress3" containerType="SINGLE" label="emailaddress3" name="emailaddress3" type="string"/>
+<Field __implementationClass="java.lang.Integer" __index="108" __sourcePath="{}/contact/gendercode" containerType="SINGLE" label="gendercode" name="gendercode" type="integer"/>
+<Field __implementationClass="java.lang.String" __index="109" __sourcePath="{}/contact/address2_x005ffax" containerType="SINGLE" label="address2_fax" name="address2_fax" type="string"/>
+<Field __implementationClass="java.lang.Integer" __index="110" __sourcePath="{}/contact/address2_x005ffreighttermscode" containerType="SINGLE" label="address2_freighttermscode" name="address2_freighttermscode" type="integer"/>
+<Field __implementationClass="java.lang.String" __index="111" __sourcePath="{}/contact/address2_x005ftelephone2" containerType="SINGLE" label="address2_telephone2" name="address2_telephone2" type="string"/>
+<Field __implementationClass="java.lang.String" __index="112" __sourcePath="{}/contact/createdonbehalfbyname" containerType="SINGLE" label="createdonbehalfbyname" name="createdonbehalfbyname" type="string"/>
+<Field __implementationClass="java.lang.String" __index="113" __sourcePath="{}/contact/contactid" containerType="SINGLE" label="contactid" name="contactid" type="string"/>
+<Field __implementationClass="java.lang.String" __index="114" __sourcePath="{}/contact/preferredsystemuserid_x005freferenceto_x005fsystemuser" containerType="SINGLE" label="preferredsystemuserid_referenceto_systemuser" name="preferredsystemuserid_referenceto_systemuser" type="string"/>
+<Field __implementationClass="java.lang.String" __index="115" __sourcePath="{}/contact/modifiedonbehalfby_x005freferenceto_x005fsystemuser" containerType="SINGLE" label="modifiedonbehalfby_referenceto_systemuser" name="modifiedonbehalfby_referenceto_systemuser" type="string"/>
+<Field __implementationClass="java.lang.String" __index="116" __sourcePath="{}/contact/address2_x005fcomposite" containerType="SINGLE" label="address2_composite" name="address2_composite" type="string"/>
+<Field __dmType="Calendar" __implementationClass="java.util.Calendar" __index="117" __sourcePath="{}/contact/birthdate" containerType="SINGLE" label="birthdate" name="birthdate" type="string"/>
+<Field __implementationClass="java.lang.String" __index="118" __sourcePath="{}/contact/address1_x005fstateorprovince" containerType="SINGLE" label="address1_stateorprovince" name="address1_stateorprovince" type="string"/>
+<Field __implementationClass="java.lang.String" __index="119" __sourcePath="{}/contact/preferredsystemuseridyominame" containerType="SINGLE" label="preferredsystemuseridyominame" name="preferredsystemuseridyominame" type="string"/>
+<Field __implementationClass="java.lang.String" __index="120" __sourcePath="{}/contact/pager" containerType="SINGLE" label="pager" name="pager" type="string"/>
+<Field __implementationClass="java.lang.String" __index="121" __sourcePath="{}/contact/preferredsystemuseridname" containerType="SINGLE" label="preferredsystemuseridname" name="preferredsystemuseridname" type="string"/>
+<Field __implementationClass="java.lang.Integer" __index="122" __sourcePath="{}/contact/familystatuscode" containerType="SINGLE" label="familystatuscode" name="familystatuscode" type="integer"/>
+<Field __implementationClass="java.lang.String" __index="123" __sourcePath="{}/contact/emailaddress2" containerType="SINGLE" label="emailaddress2" name="emailaddress2" type="string"/>
+<Field __implementationClass="java.lang.String" __index="124" __sourcePath="{}/contact/address1_x005fupszone" containerType="SINGLE" label="address1_upszone" name="address1_upszone" type="string"/>
+<Field __implementationClass="java.lang.String" __index="125" __sourcePath="{}/contact/stageid" containerType="SINGLE" label="stageid" name="stageid" type="string"/>
+<Field __implementationClass="java.lang.String" __index="126" __sourcePath="{}/contact/salutation" containerType="SINGLE" label="salutation" name="salutation" type="string"/>
+<Field __implementationClass="java.lang.String" __index="127" __sourcePath="{}/contact/address1_x005ffax" containerType="SINGLE" label="address1_fax" name="address1_fax" type="string"/>
+<Field __implementationClass="java.lang.String" __index="128" __sourcePath="{}/contact/address3_x005fline3" containerType="SINGLE" label="address3_line3" name="address3_line3" type="string"/>
+<Field __dmType="Calendar" __implementationClass="java.util.Calendar" __index="129" __sourcePath="{}/contact/createdon" containerType="SINGLE" label="createdon" name="createdon" type="string"/>
+<Field __implementationClass="java.lang.String" __index="130" __sourcePath="{}/contact/address1_x005fpostofficebox" containerType="SINGLE" label="address1_postofficebox" name="address1_postofficebox" type="string"/>
+<Field __implementationClass="java.lang.Integer" __index="131" __sourcePath="{}/contact/customersizecode" containerType="SINGLE" label="customersizecode" name="customersizecode" type="integer"/>
+<Field __implementationClass="java.lang.String" __index="132" __sourcePath="{}/contact/owneridname" containerType="SINGLE" label="owneridname" name="owneridname" type="string"/>
+<Field __implementationClass="java.lang.Long" __index="133" __sourcePath="{}/contact/versionnumber" containerType="SINGLE" label="versionnumber" name="versionnumber" type="long"/>
+<Field __implementationClass="java.lang.String" __index="134" __sourcePath="{}/contact/address3_x005fcounty" containerType="SINGLE" label="address3_county" name="address3_county" type="string"/>
+<Field __implementationClass="java.lang.String" __index="135" __sourcePath="{}/contact/address3_x005ftelephone1" containerType="SINGLE" label="address3_telephone1" name="address3_telephone1" type="string"/>
+<Field __implementationClass="java.lang.String" __index="136" __sourcePath="{}/contact/processid" containerType="SINGLE" label="processid" name="processid" type="string"/>
+<Field __implementationClass="java.lang.String" __index="137" __sourcePath="{}/contact/transactioncurrencyid_x005freferenceto_x005ftransactioncurrency" containerType="SINGLE" label="transactioncurrencyid_referenceto_transactioncurrency" name="transactioncurrencyid_referenceto_transactioncurrency" type="string"/>
+<Field __implementationClass="java.lang.String" __index="138" __sourcePath="{}/contact/parentcontactidname" containerType="SINGLE" label="parentcontactidname" name="parentcontactidname" type="string"/>
+<Field __implementationClass="java.lang.String" __index="139" __sourcePath="{}/contact/telephone3" containerType="SINGLE" label="telephone3" name="telephone3" type="string"/>
+<Field __implementationClass="java.lang.String" __index="140" __sourcePath="{}/contact/masterid_x005freferenceto_x005fcontact" containerType="SINGLE" label="masterid_referenceto_contact" name="masterid_referenceto_contact" type="string"/>
+<Field __implementationClass="java.math.BigDecimal" __index="141" __sourcePath="{}/contact/aging60_x005fbase" containerType="SINGLE" label="aging60_base" name="aging60_base" type="decimal"/>
+<Field __implementationClass="java.lang.String" __index="142" __sourcePath="{}/contact/address3_x005fline1" containerType="SINGLE" label="address3_line1" name="address3_line1" type="string"/>
+<Field __implementationClass="java.lang.String" __index="143" __sourcePath="{}/contact/entityimageid" containerType="SINGLE" label="entityimageid" name="entityimageid" type="string"/>
+<Field __implementationClass="java.lang.Boolean" __index="144" __sourcePath="{}/contact/merged" containerType="SINGLE" label="merged" name="merged" type="boolean"/>
+<Field __implementationClass="java.lang.String" __index="145" __sourcePath="{}/contact/address2_x005fstateorprovince" containerType="SINGLE" label="address2_stateorprovince" name="address2_stateorprovince" type="string"/>
+<Field __implementationClass="java.lang.Boolean" __index="146" __sourcePath="{}/contact/donotemail" containerType="SINGLE" label="donotemail" name="donotemail" type="boolean"/>
+<Field __dmType="Calendar" __implementationClass="java.util.Calendar" __index="147" __sourcePath="{}/contact/modifiedon" containerType="SINGLE" label="modifiedon" name="modifiedon" type="string"/>
+<Field __implementationClass="java.lang.String" __index="148" __sourcePath="{}/contact/address3_x005fprimarycontactname" containerType="SINGLE" label="address3_primarycontactname" name="address3_primarycontactname" type="string"/>
+<Field __implementationClass="java.lang.String" __index="149" __sourcePath="{}/contact/fax" containerType="SINGLE" label="fax" name="fax" type="string"/>
+<Field __implementationClass="java.lang.Integer" __index="150" __sourcePath="{}/contact/preferredappointmentdaycode" containerType="SINGLE" label="preferredappointmentdaycode" name="preferredappointmentdaycode" type="integer"/>
+<Field __implementationClass="java.lang.String" __index="151" __sourcePath="{}/contact/originatingleadid_x005freferenceto_x005flead" containerType="SINGLE" label="originatingleadid_referenceto_lead" name="originatingleadid_referenceto_lead" type="string"/>
+<Field __implementationClass="java.lang.String" __index="152" __sourcePath="{}/contact/lastname" containerType="SINGLE" label="lastname" name="lastname" type="string"/>
+<Field __dmType="Calendar" __implementationClass="java.util.Calendar" __index="153" __sourcePath="{}/contact/anniversary" containerType="SINGLE" label="anniversary" name="anniversary" type="string"/>
+<Field __implementationClass="java.lang.String" __index="154" __sourcePath="{}/contact/address1_x005ftelephone3" containerType="SINGLE" label="address1_telephone3" name="address1_telephone3" type="string"/>
+<Field __implementationClass="java.lang.String" __index="155" __sourcePath="{}/contact/createdbyyominame" containerType="SINGLE" label="createdbyyominame" name="createdbyyominame" type="string"/>
+<Field __implementationClass="java.lang.String" __index="156" __sourcePath="{}/contact/address1_x005fprimarycontactname" containerType="SINGLE" label="address1_primarycontactname" name="address1_primarycontactname" type="string"/>
+<Field __implementationClass="java.lang.Boolean" __index="157" __sourcePath="{}/contact/donotbulkpostalmail" containerType="SINGLE" label="donotbulkpostalmail" name="donotbulkpostalmail" type="boolean"/>
+<Field __implementationClass="java.lang.String" __index="158" __sourcePath="{}/contact/address3_x005fupszone" containerType="SINGLE" label="address3_upszone" name="address3_upszone" type="string"/>
+<Field __implementationClass="java.lang.String" __index="159" __sourcePath="{}/contact/modifiedbyname" containerType="SINGLE" label="modifiedbyname" name="modifiedbyname" type="string"/>
+<Field __implementationClass="java.lang.Integer" __index="160" __sourcePath="{}/contact/numberofchildren" containerType="SINGLE" label="numberofchildren" name="numberofchildren" type="integer"/>
+<Field __implementationClass="java.lang.Integer" __index="161" __sourcePath="{}/contact/shippingmethodcode" containerType="SINGLE" label="shippingmethodcode" name="shippingmethodcode" type="integer"/>
+<Field __implementationClass="java.lang.String" __index="162" __sourcePath="{}/contact/yomilastname" containerType="SINGLE" label="yomilastname" name="yomilastname" type="string"/>
+<Field __implementationClass="java.lang.String" __index="163" __sourcePath="{}/contact/firstname" containerType="SINGLE" label="firstname" name="firstname" type="string"/>
+<Field __implementationClass="java.lang.String" __index="164" __sourcePath="{}/contact/address3_x005faddressid" containerType="SINGLE" label="address3_addressid" name="address3_addressid" type="string"/>
+<Field __implementationClass="java.lang.String" __index="165" __sourcePath="{}/contact/address2_x005fpostalcode" containerType="SINGLE" label="address2_postalcode" name="address2_postalcode" type="string"/>
+<Field __implementationClass="java.lang.String" __index="166" __sourcePath="{}/contact/websiteurl" containerType="SINGLE" label="websiteurl" name="websiteurl" type="string"/>
+<Field __implementationClass="java.lang.String" __index="167" __sourcePath="{}/contact/parentcontactidyominame" containerType="SINGLE" label="parentcontactidyominame" name="parentcontactidyominame" type="string"/>
+<Field __implementationClass="java.lang.String" __index="168" __sourcePath="{}/contact/accountidname" containerType="SINGLE" label="accountidname" name="accountidname" type="string"/>
+<Field __implementationClass="java.lang.String" __index="169" __sourcePath="{}/contact/telephone1" containerType="SINGLE" label="telephone1" name="telephone1" type="string"/>
+<Field __implementationClass="java.lang.Long" __index="170" __sourcePath="{}/contact/entityimage_x005ftimestamp" containerType="SINGLE" label="entityimage_timestamp" name="entityimage_timestamp" type="long"/>
+<Field __implementationClass="java.lang.String" __index="171" __sourcePath="{}/contact/callback" containerType="SINGLE" label="callback" name="callback" type="string"/>
+<Field __implementationClass="java.lang.String" __index="172" __sourcePath="{}/contact/mastercontactidname" containerType="SINGLE" label="mastercontactidname" name="mastercontactidname" type="string"/>
+<Field __implementationClass="java.lang.Boolean" __index="173" __sourcePath="{}/contact/donotbulkemail" containerType="SINGLE" label="donotbulkemail" name="donotbulkemail" type="boolean"/>
+<Field __implementationClass="java.lang.Integer" __index="174" __sourcePath="{}/contact/address1_x005ffreighttermscode" containerType="SINGLE" label="address1_freighttermscode" name="address1_freighttermscode" type="integer"/>
+<Field __implementationClass="java.lang.String" __index="175" __sourcePath="{}/contact/preferredserviceid_x005freferenceto_x005fservice" containerType="SINGLE" label="preferredserviceid_referenceto_service" name="preferredserviceid_referenceto_service" type="string"/>
+<Field __implementationClass="java.lang.String" __index="176" __sourcePath="{}/contact/jobtitle" containerType="SINGLE" label="jobtitle" name="jobtitle" type="string"/>
+<Field __implementationClass="java.lang.String" __index="177" __sourcePath="{}/contact/owningteam_x005freferenceto_x005fteam" containerType="SINGLE" label="owningteam_referenceto_team" name="owningteam_referenceto_team" type="string"/>
+<Field __implementationClass="java.lang.String" __index="178" __sourcePath="{}/contact/accountidyominame" containerType="SINGLE" label="accountidyominame" name="accountidyominame" type="string"/>
+<Field __implementationClass="java.lang.Integer" __index="179" __sourcePath="{}/contact/address1_x005futcoffset" containerType="SINGLE" label="address1_utcoffset" name="address1_utcoffset" type="integer"/>
+<Field __implementationClass="java.lang.String" __index="180" __sourcePath="{}/contact/address2_x005ftelephone1" containerType="SINGLE" label="address2_telephone1" name="address2_telephone1" type="string"/>
+<Field __implementationClass="java.math.BigDecimal" __index="181" __sourcePath="{}/contact/creditlimit" containerType="SINGLE" label="creditlimit" name="creditlimit" type="decimal"/>
+<Field __implementationClass="java.lang.String" __index="182" __sourcePath="{}/contact/suffix" containerType="SINGLE" label="suffix" name="suffix" type="string"/>
+<Field __implementationClass="java.lang.Integer" __index="183" __sourcePath="{}/contact/timezoneruleversionnumber" containerType="SINGLE" label="timezoneruleversionnumber" name="timezoneruleversionnumber" type="integer"/>
+<Field __implementationClass="java.lang.String" __index="184" __sourcePath="{}/contact/subscriptionid" containerType="SINGLE" label="subscriptionid" name="subscriptionid" type="string"/>
+<Field __implementationClass="java.lang.Integer" __index="185" __sourcePath="{}/contact/address3_x005futcoffset" containerType="SINGLE" label="address3_utcoffset" name="address3_utcoffset" type="integer"/>
+<Field __implementationClass="java.lang.String" __index="186" __sourcePath="{}/contact/address3_x005fcomposite" containerType="SINGLE" label="address3_composite" name="address3_composite" type="string"/>
+<Field __implementationClass="java.lang.Integer" __index="187" __sourcePath="{}/contact/leadsourcecode" containerType="SINGLE" label="leadsourcecode" name="leadsourcecode" type="integer"/>
+<Field __implementationClass="java.lang.String" __index="188" __sourcePath="{}/contact/address2_x005ftelephone3" containerType="SINGLE" label="address2_telephone3" name="address2_telephone3" type="string"/>
+<Field __implementationClass="java.lang.String" __index="189" __sourcePath="{}/contact/address3_x005fname" containerType="SINGLE" label="address3_name" name="address3_name" type="string"/>
+<Field __implementationClass="java.lang.String" __index="190" __sourcePath="{}/contact/accountid_x005freferenceto_x005faccount" containerType="SINGLE" label="accountid_referenceto_account" name="accountid_referenceto_account" type="string"/>
+<Field __implementationClass="java.lang.Integer" __index="191" __sourcePath="{}/contact/educationcode" containerType="SINGLE" label="educationcode" name="educationcode" type="integer"/>
+<Field __implementationClass="java.lang.Integer" __index="192" __sourcePath="{}/contact/preferredappointmenttimecode" containerType="SINGLE" label="preferredappointmenttimecode" name="preferredappointmenttimecode" type="integer"/>
+<Field __implementationClass="java.lang.String" __index="193" __sourcePath="{}/contact/preferredserviceidname" containerType="SINGLE" label="preferredserviceidname" name="preferredserviceidname" type="string"/>
+<Field __implementationClass="java.lang.String" __index="194" __sourcePath="{}/contact/modifiedonbehalfbyname" containerType="SINGLE" label="modifiedonbehalfbyname" name="modifiedonbehalfbyname" type="string"/>
+<Field __implementationClass="java.lang.String" __index="195" __sourcePath="{}/contact/originatingleadidname" containerType="SINGLE" label="originatingleadidname" name="originatingleadidname" type="string"/>
+<Field __implementationClass="java.lang.String" __index="196" __sourcePath="{}/contact/traversedpath" containerType="SINGLE" label="traversedpath" name="traversedpath" type="string"/>
+<Field __implementationClass="java.lang.String" __index="197" __sourcePath="{}/contact/createdonbehalfby_x005freferenceto_x005fsystemuser" containerType="SINGLE" label="createdonbehalfby_referenceto_systemuser" name="createdonbehalfby_referenceto_systemuser" type="string"/>
+<Field __implementationClass="java.lang.String" __index="198" __sourcePath="{}/contact/entityimage_x005furl" containerType="SINGLE" label="entityimage_url" name="entityimage_url" type="string"/>
+<Field __implementationClass="java.lang.Double" __index="199" __sourcePath="{}/contact/address1_x005flongitude" containerType="SINGLE" label="address1_longitude" name="address1_longitude" type="number"/>
+<Field __implementationClass="java.lang.String" __index="200" __sourcePath="{}/contact/address2_x005fname" containerType="SINGLE" label="address2_name" name="address2_name" type="string"/>
+<Field __implementationClass="java.math.BigDecimal" __index="201" __sourcePath="{}/contact/aging30_x005fbase" containerType="SINGLE" label="aging30_base" name="aging30_base" type="decimal"/>
+<Field __implementationClass="java.lang.String" __index="202" __sourcePath="{}/contact/originatingleadidyominame" containerType="SINGLE" label="originatingleadidyominame" name="originatingleadidyominame" type="string"/>
+<Field __implementationClass="java.lang.Integer" __index="203" __sourcePath="{}/contact/address2_x005fshippingmethodcode" containerType="SINGLE" label="address2_shippingmethodcode" name="address2_shippingmethodcode" type="integer"/>
+<Field __implementationClass="java.lang.String" __index="204" __sourcePath="{}/contact/owneridtype" containerType="SINGLE" label="owneridtype" name="owneridtype" type="string"/>
+<Field __implementationClass="java.lang.String" __index="205" __sourcePath="{}/contact/address1_x005fcomposite" containerType="SINGLE" label="address1_composite" name="address1_composite" type="string"/>
+<Field __implementationClass="java.lang.String" __index="206" __sourcePath="{}/contact/spousesname" containerType="SINGLE" label="spousesname" name="spousesname" type="string"/>
+<Field __implementationClass="java.math.BigDecimal" __index="207" __sourcePath="{}/contact/creditlimit_x005fbase" containerType="SINGLE" label="creditlimit_base" name="creditlimit_base" type="decimal"/>
+<Field __implementationClass="java.lang.String" __index="208" __sourcePath="{}/contact/managername" containerType="SINGLE" label="managername" name="managername" type="string"/>
+<Field __implementationClass="java.lang.String" __index="209" __sourcePath="{}/contact/address2_x005fupszone" containerType="SINGLE" label="address2_upszone" name="address2_upszone" type="string"/>
+<Field __implementationClass="java.lang.String" __index="210" __sourcePath="{}/contact/emailaddress1" containerType="SINGLE" label="emailaddress1" name="emailaddress1" type="string"/>
+<Field __implementationClass="java.lang.String" __index="211" __sourcePath="{}/contact/address2_x005fprimarycontactname" containerType="SINGLE" label="address2_primarycontactname" name="address2_primarycontactname" type="string"/>
+<Field __implementationClass="java.math.BigDecimal" __index="212" __sourcePath="{}/contact/annualincome_x005fbase" containerType="SINGLE" label="annualincome_base" name="annualincome_base" type="decimal"/>
+<Field __implementationClass="java.lang.String" __index="213" __sourcePath="{}/contact/address3_x005ftelephone2" containerType="SINGLE" label="address3_telephone2" name="address3_telephone2" type="string"/>
+</Record>
+</Metadata>
+<Metadata __index="0" __referenceCounter="1" __sourcePath="{}/SfdcContact" _dataStructure="OBJECT" _id="__id" _type="Input" id="45eac628-9743-490b-97e9-0547c7a58b2a">
+<Record fieldDelimiter="," name="SfdcContact" recordDelimiter="\n\\|\r\n\\|\r" type="delimited">
+<Field __artificialType="_id" __systemManaged="true" name="__id" type="string"/>
+<Field __index="1" __sourcePath="{}/SfdcContact/Email" containerType="SINGLE" label="Email" name="Email" type="string"/>
+<Field __index="0" __sourcePath="{}/SfdcContact/Name" containerType="SINGLE" label="Name" name="Name" type="string"/>
+<Field __sourcePath="{}/SfdcContact/Fax" containerType="SINGLE" label="Fax" name="Fax" type="string"/>
+<Field __sourcePath="{}/SfdcContact/Phone" containerType="SINGLE" label="Phone" name="Phone" type="string"/>
+<Field __sourcePath="{}/SfdcContact/FirstName" containerType="SINGLE" label="FirstName" name="FirstName" type="string"/>
+<Field __sourcePath="{}/SfdcContact/LastName" containerType="SINGLE" label="LastName" name="LastName" type="string"/>
+<Field __sourcePath="{}/SfdcContact/Description" containerType="SINGLE" label="Description" name="Description" type="string"/>
+</Record>
+</Metadata>
+<Dictionary>
+<Entry id="DictionaryEntry0" input="true" name="inputPayload" output="false" type="object"/>
+<Entry id="DictionaryEntry1" input="false" name="outputPayload" output="true" type="object"/>
+</Dictionary>
+</Global>
+<Phase number="0">
+<Node enabled="enabled" fileURL="dict:inputPayload" guiName="Map&lt;k,v&gt; READER" guiX="20" guiY="20" id="BEAN_READER0" type="BEAN_READER">
+<attr name="mapping"><![CDATA[<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<Context outPort="0" sequenceField="__id" xpath=".">
+  <Mapping cloverField="Email" trim="true" xpath="Email"/>
+  <Mapping cloverField="Name" trim="true" xpath="Name"/>
+  <Mapping cloverField="Fax" trim="true" xpath="Fax"/>
+  <Mapping cloverField="Phone" trim="true" xpath="Phone"/>
+  <Mapping cloverField="FirstName" trim="true" xpath="FirstName"/>
+  <Mapping cloverField="LastName" trim="true" xpath="LastName"/>
+  <Mapping cloverField="Description" trim="true" xpath="Description"/>
+</Context>
+]]></attr>
+<attr name="_data_format"><![CDATA[MAP]]></attr>
+</Node>
+<Node enabled="enabled" guiName="Foreach 'SfdcContact' -&gt; 'contact'" guiX="460" guiY="20" id="FOREACH_SFDC_CONTACT_CONTACT" transformClass="com.mulesoft.datamapper.transform.MelRecordTransform" type="REFORMAT">
+<attr name="melScript"><![CDATA[//MEL
+//START -> DO NOT REMOVE
+output.__id = input.__id;
+//END -> DO NOT REMOVE
+output.emailaddress1 = input.Email;
+output.fullname = input.Name;
+output.modifiedon = server.dateTime;
+output.fax = input.Fax;
+output.telephone1 = input.Phone;
+output.firstname = input.FirstName;
+output.lastname = input.LastName;
+output.description = input.Description;]]></attr>
+</Node>
+<Node enabled="enabled" fileURL="dict:outputPayload" guiName="Map&lt;k,v&gt; WRITER" guiX="900" guiY="20" id="MAP_WRITER0" type="MAP_WRITER">
+<attr name="mapping"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<contact xmlns:clover="http://www.cloveretl.com/ns/xmlmapping" clover:inPort="0">
+  <clover:element clover:name="address2_line2" clover:dataType="java.lang.String">$0.address2_line2</clover:element>
+  <clover:element clover:name="address3_stateorprovince" clover:dataType="java.lang.String">$0.address3_stateorprovince</clover:element>
+  <clover:element clover:name="createdby_referenceto_systemuser" clover:dataType="java.lang.String">$0.createdby_referenceto_systemuser</clover:element>
+  <exchangerate clover:dataType="java.math.BigDecimal">$0.exchangerate</exchangerate>
+  <clover:element clover:name="address3_postofficebox" clover:dataType="java.lang.String">$0.address3_postofficebox</clover:element>
+  <ftpsiteurl clover:dataType="java.lang.String">$0.ftpsiteurl</ftpsiteurl>
+  <yomimiddlename clover:dataType="java.lang.String">$0.yomimiddlename</yomimiddlename>
+  <aging90 clover:dataType="java.math.BigDecimal">$0.aging90</aging90>
+  <clover:element clover:name="address2_county" clover:dataType="java.lang.String">$0.address2_county</clover:element>
+  <clover:element clover:name="defaultpricelevelid_referenceto_pricelevel" clover:dataType="java.lang.String">$0.defaultpricelevelid_referenceto_pricelevel</clover:element>
+  <middlename clover:dataType="java.lang.String">$0.middlename</middlename>
+  <clover:element clover:name="address1_line3" clover:dataType="java.lang.String">$0.address1_line3</clover:element>
+  <clover:element clover:name="address1_latitude" clover:dataType="java.lang.Double">$0.address1_latitude</clover:element>
+  <donotfax clover:dataType="java.lang.Boolean">$0.donotfax</donotfax>
+  <aging30 clover:dataType="java.math.BigDecimal">$0.aging30</aging30>
+  <clover:element clover:name="address3_freighttermscode" clover:dataType="java.lang.Integer">$0.address3_freighttermscode</clover:element>
+  <importsequencenumber clover:dataType="java.lang.Integer">$0.importsequencenumber</importsequencenumber>
+  <clover:element clover:name="address1_addresstypecode" clover:dataType="java.lang.Integer">$0.address1_addresstypecode</clover:element>
+  <company clover:dataType="java.lang.String">$0.company</company>
+  <createdonbehalfbyyominame clover:dataType="java.lang.String">$0.createdonbehalfbyyominame</createdonbehalfbyyominame>
+  <clover:element clover:name="parentcustomerid_referenceto_account" clover:dataType="java.lang.String">$0.parentcustomerid_referenceto_account</clover:element>
+  <clover:element clover:name="parentcustomerid_referenceto_contact" clover:dataType="java.lang.String">$0.parentcustomerid_referenceto_contact</clover:element>
+  <yomifullname clover:dataType="java.lang.String">$0.yomifullname</yomifullname>
+  <clover:element clover:name="address1_county" clover:dataType="java.lang.String">$0.address1_county</clover:element>
+  <clover:element clover:name="address2_line1" clover:dataType="java.lang.String">$0.address2_line1</clover:element>
+  <clover:element clover:name="aging90_base" clover:dataType="java.math.BigDecimal">$0.aging90_base</clover:element>
+  <createdbyname clover:dataType="java.lang.String">$0.createdbyname</createdbyname>
+  <mobilephone clover:dataType="java.lang.String">$0.mobilephone</mobilephone>
+  <managerphone clover:dataType="java.lang.String">$0.managerphone</managerphone>
+  <donotsendmm clover:dataType="java.lang.Boolean">$0.donotsendmm</donotsendmm>
+  <preferredcontactmethodcode clover:dataType="java.lang.Integer">$0.preferredcontactmethodcode</preferredcontactmethodcode>
+  <clover:element clover:name="modifiedby_referenceto_systemuser" clover:dataType="java.lang.String">$0.modifiedby_referenceto_systemuser</clover:element>
+  <clover:element clover:name="address3_city" clover:dataType="java.lang.String">$0.address3_city</clover:element>
+  <mastercontactidyominame clover:dataType="java.lang.String">$0.mastercontactidyominame</mastercontactidyominame>
+  <yomifirstname clover:dataType="java.lang.String">$0.yomifirstname</yomifirstname>
+  <clover:element clover:name="address1_name" clover:dataType="java.lang.String">$0.address1_name</clover:element>
+  <externaluseridentifier clover:dataType="java.lang.String">$0.externaluseridentifier</externaluseridentifier>
+  <clover:element clover:name="address1_telephone1" clover:dataType="java.lang.String">$0.address1_telephone1</clover:element>
+  <clover:element clover:name="address1_postalcode" clover:dataType="java.lang.String">$0.address1_postalcode</clover:element>
+  <clover:element clover:name="preferredequipmentid_referenceto_equipment" clover:dataType="java.lang.String">$0.preferredequipmentid_referenceto_equipment</clover:element>
+  <nickname clover:dataType="java.lang.String">$0.nickname</nickname>
+  <clover:element clover:name="address3_country" clover:dataType="java.lang.String">$0.address3_country</clover:element>
+  <preferredequipmentidname clover:dataType="java.lang.String">$0.preferredequipmentidname</preferredequipmentidname>
+  <clover:element clover:name="address2_addresstypecode" clover:dataType="java.lang.Integer">$0.address2_addresstypecode</clover:element>
+  <customertypecode clover:dataType="java.lang.Integer">$0.customertypecode</customertypecode>
+  <statecode clover:dataType="java.lang.Integer">$0.statecode</statecode>
+  <isbackofficecustomer clover:dataType="java.lang.Boolean">$0.isbackofficecustomer</isbackofficecustomer>
+  <utcconversiontimezonecode clover:dataType="java.lang.Integer">$0.utcconversiontimezonecode</utcconversiontimezonecode>
+  <clover:element clover:name="address3_line2" clover:dataType="java.lang.String">$0.address3_line2</clover:element>
+  <lastusedincampaign clover:dataType="java.util.Calendar">$0.lastusedincampaign</lastusedincampaign>
+  <employeeid clover:dataType="java.lang.String">$0.employeeid</employeeid>
+  <participatesinworkflow clover:dataType="java.lang.Boolean">$0.participatesinworkflow</participatesinworkflow>
+  <owneridyominame clover:dataType="java.lang.String">$0.owneridyominame</owneridyominame>
+  <clover:element clover:name="address3_longitude" clover:dataType="java.lang.Double">$0.address3_longitude</clover:element>
+  <department clover:dataType="java.lang.String">$0.department</department>
+  <parentcustomeridtype clover:dataType="java.lang.String">$0.parentcustomeridtype</parentcustomeridtype>
+  <donotpostalmail clover:dataType="java.lang.Boolean">$0.donotpostalmail</donotpostalmail>
+  <clover:element clover:name="address2_postofficebox" clover:dataType="java.lang.String">$0.address2_postofficebox</clover:element>
+  <clover:element clover:name="owningbusinessunit_referenceto_businessunit" clover:dataType="java.lang.String">$0.owningbusinessunit_referenceto_businessunit</clover:element>
+  <accountrolecode clover:dataType="java.lang.Integer">$0.accountrolecode</accountrolecode>
+  <statuscode clover:dataType="java.lang.Integer">$0.statuscode</statuscode>
+  <clover:element clover:name="address2_country" clover:dataType="java.lang.String">$0.address2_country</clover:element>
+  <clover:element clover:name="address3_telephone3" clover:dataType="java.lang.String">$0.address3_telephone3</clover:element>
+  <clover:element clover:name="address2_addressid" clover:dataType="java.lang.String">$0.address2_addressid</clover:element>
+  <clover:element clover:name="address2_latitude" clover:dataType="java.lang.Double">$0.address2_latitude</clover:element>
+  <aging60 clover:dataType="java.math.BigDecimal">$0.aging60</aging60>
+  <childrensnames clover:dataType="java.lang.String">$0.childrensnames</childrensnames>
+  <clover:element clover:name="address1_line1" clover:dataType="java.lang.String">$0.address1_line1</clover:element>
+  <clover:element clover:name="address3_latitude" clover:dataType="java.lang.Double">$0.address3_latitude</clover:element>
+  <modifiedbyyominame clover:dataType="java.lang.String">$0.modifiedbyyominame</modifiedbyyominame>
+  <modifiedonbehalfbyyominame clover:dataType="java.lang.String">$0.modifiedonbehalfbyyominame</modifiedonbehalfbyyominame>
+  <parentcustomeridname clover:dataType="java.lang.String">$0.parentcustomeridname</parentcustomeridname>
+  <overriddencreatedon clover:dataType="java.util.Calendar">$0.overriddencreatedon</overriddencreatedon>
+  <clover:element clover:name="address1_telephone2" clover:dataType="java.lang.String">$0.address1_telephone2</clover:element>
+  <clover:element clover:name="address3_postalcode" clover:dataType="java.lang.String">$0.address3_postalcode</clover:element>
+  <clover:element clover:name="address2_city" clover:dataType="java.lang.String">$0.address2_city</clover:element>
+  <clover:element clover:name="address3_shippingmethodcode" clover:dataType="java.lang.Integer">$0.address3_shippingmethodcode</clover:element>
+  <home2 clover:dataType="java.lang.String">$0.home2</home2>
+  <clover:element clover:name="parentcontactid_referenceto_contact" clover:dataType="java.lang.String">$0.parentcontactid_referenceto_contact</clover:element>
+  <clover:element clover:name="address3_fax" clover:dataType="java.lang.String">$0.address3_fax</clover:element>
+  <clover:element clover:name="owninguser_referenceto_systemuser" clover:dataType="java.lang.String">$0.owninguser_referenceto_systemuser</clover:element>
+  <clover:element clover:name="address2_utcoffset" clover:dataType="java.lang.Integer">$0.address2_utcoffset</clover:element>
+  <creditonhold clover:dataType="java.lang.Boolean">$0.creditonhold</creditonhold>
+  <clover:element clover:name="address3_addresstypecode" clover:dataType="java.lang.Integer">$0.address3_addresstypecode</clover:element>
+  <assistantphone clover:dataType="java.lang.String">$0.assistantphone</assistantphone>
+  <haschildrencode clover:dataType="java.lang.Integer">$0.haschildrencode</haschildrencode>
+  <parentcustomeridyominame clover:dataType="java.lang.String">$0.parentcustomeridyominame</parentcustomeridyominame>
+  <ownerid clover:dataType="java.lang.String">$0.ownerid</ownerid>
+  <clover:element clover:name="address2_longitude" clover:dataType="java.lang.Double">$0.address2_longitude</clover:element>
+  <transactioncurrencyidname clover:dataType="java.lang.String">$0.transactioncurrencyidname</transactioncurrencyidname>
+  <clover:element clover:name="address1_city" clover:dataType="java.lang.String">$0.address1_city</clover:element>
+  <clover:element clover:name="address1_addressid" clover:dataType="java.lang.String">$0.address1_addressid</clover:element>
+  <annualincome clover:dataType="java.math.BigDecimal">$0.annualincome</annualincome>
+  <governmentid clover:dataType="java.lang.String">$0.governmentid</governmentid>
+  <clover:element clover:name="address1_country" clover:dataType="java.lang.String">$0.address1_country</clover:element>
+  <assistantname clover:dataType="java.lang.String">$0.assistantname</assistantname>
+  <business2 clover:dataType="java.lang.String">$0.business2</business2>
+  <telephone2 clover:dataType="java.lang.String">$0.telephone2</telephone2>
+  <territorycode clover:dataType="java.lang.Integer">$0.territorycode</territorycode>
+  <donotphone clover:dataType="java.lang.Boolean">$0.donotphone</donotphone>
+  <clover:element clover:name="address1_shippingmethodcode" clover:dataType="java.lang.Integer">$0.address1_shippingmethodcode</clover:element>
+  <paymenttermscode clover:dataType="java.lang.Integer">$0.paymenttermscode</paymenttermscode>
+  <clover:element clover:name="address2_line3" clover:dataType="java.lang.String">$0.address2_line3</clover:element>
+  <fullname clover:dataType="java.lang.String">$0.fullname</fullname>
+  <clover:element clover:name="address1_line2" clover:dataType="java.lang.String">$0.address1_line2</clover:element>
+  <description clover:dataType="java.lang.String">$0.description</description>
+  <defaultpricelevelidname clover:dataType="java.lang.String">$0.defaultpricelevelidname</defaultpricelevelidname>
+  <emailaddress3 clover:dataType="java.lang.String">$0.emailaddress3</emailaddress3>
+  <gendercode clover:dataType="java.lang.Integer">$0.gendercode</gendercode>
+  <clover:element clover:name="address2_fax" clover:dataType="java.lang.String">$0.address2_fax</clover:element>
+  <clover:element clover:name="address2_freighttermscode" clover:dataType="java.lang.Integer">$0.address2_freighttermscode</clover:element>
+  <clover:element clover:name="address2_telephone2" clover:dataType="java.lang.String">$0.address2_telephone2</clover:element>
+  <createdonbehalfbyname clover:dataType="java.lang.String">$0.createdonbehalfbyname</createdonbehalfbyname>
+  <contactid clover:dataType="java.lang.String">$0.contactid</contactid>
+  <clover:element clover:name="preferredsystemuserid_referenceto_systemuser" clover:dataType="java.lang.String">$0.preferredsystemuserid_referenceto_systemuser</clover:element>
+  <clover:element clover:name="modifiedonbehalfby_referenceto_systemuser" clover:dataType="java.lang.String">$0.modifiedonbehalfby_referenceto_systemuser</clover:element>
+  <clover:element clover:name="address2_composite" clover:dataType="java.lang.String">$0.address2_composite</clover:element>
+  <birthdate clover:dataType="java.util.Calendar">$0.birthdate</birthdate>
+  <clover:element clover:name="address1_stateorprovince" clover:dataType="java.lang.String">$0.address1_stateorprovince</clover:element>
+  <preferredsystemuseridyominame clover:dataType="java.lang.String">$0.preferredsystemuseridyominame</preferredsystemuseridyominame>
+  <pager clover:dataType="java.lang.String">$0.pager</pager>
+  <preferredsystemuseridname clover:dataType="java.lang.String">$0.preferredsystemuseridname</preferredsystemuseridname>
+  <familystatuscode clover:dataType="java.lang.Integer">$0.familystatuscode</familystatuscode>
+  <emailaddress2 clover:dataType="java.lang.String">$0.emailaddress2</emailaddress2>
+  <clover:element clover:name="address1_upszone" clover:dataType="java.lang.String">$0.address1_upszone</clover:element>
+  <stageid clover:dataType="java.lang.String">$0.stageid</stageid>
+  <salutation clover:dataType="java.lang.String">$0.salutation</salutation>
+  <clover:element clover:name="address1_fax" clover:dataType="java.lang.String">$0.address1_fax</clover:element>
+  <clover:element clover:name="address3_line3" clover:dataType="java.lang.String">$0.address3_line3</clover:element>
+  <createdon clover:dataType="java.util.Calendar">$0.createdon</createdon>
+  <clover:element clover:name="address1_postofficebox" clover:dataType="java.lang.String">$0.address1_postofficebox</clover:element>
+  <customersizecode clover:dataType="java.lang.Integer">$0.customersizecode</customersizecode>
+  <owneridname clover:dataType="java.lang.String">$0.owneridname</owneridname>
+  <versionnumber clover:dataType="java.lang.Long">$0.versionnumber</versionnumber>
+  <clover:element clover:name="address3_county" clover:dataType="java.lang.String">$0.address3_county</clover:element>
+  <clover:element clover:name="address3_telephone1" clover:dataType="java.lang.String">$0.address3_telephone1</clover:element>
+  <processid clover:dataType="java.lang.String">$0.processid</processid>
+  <clover:element clover:name="transactioncurrencyid_referenceto_transactioncurrency" clover:dataType="java.lang.String">$0.transactioncurrencyid_referenceto_transactioncurrency</clover:element>
+  <parentcontactidname clover:dataType="java.lang.String">$0.parentcontactidname</parentcontactidname>
+  <telephone3 clover:dataType="java.lang.String">$0.telephone3</telephone3>
+  <clover:element clover:name="masterid_referenceto_contact" clover:dataType="java.lang.String">$0.masterid_referenceto_contact</clover:element>
+  <clover:element clover:name="aging60_base" clover:dataType="java.math.BigDecimal">$0.aging60_base</clover:element>
+  <clover:element clover:name="address3_line1" clover:dataType="java.lang.String">$0.address3_line1</clover:element>
+  <entityimageid clover:dataType="java.lang.String">$0.entityimageid</entityimageid>
+  <merged clover:dataType="java.lang.Boolean">$0.merged</merged>
+  <clover:element clover:name="address2_stateorprovince" clover:dataType="java.lang.String">$0.address2_stateorprovince</clover:element>
+  <donotemail clover:dataType="java.lang.Boolean">$0.donotemail</donotemail>
+  <modifiedon clover:dataType="java.util.Calendar">$0.modifiedon</modifiedon>
+  <clover:element clover:name="address3_primarycontactname" clover:dataType="java.lang.String">$0.address3_primarycontactname</clover:element>
+  <fax clover:dataType="java.lang.String">$0.fax</fax>
+  <preferredappointmentdaycode clover:dataType="java.lang.Integer">$0.preferredappointmentdaycode</preferredappointmentdaycode>
+  <clover:element clover:name="originatingleadid_referenceto_lead" clover:dataType="java.lang.String">$0.originatingleadid_referenceto_lead</clover:element>
+  <lastname clover:dataType="java.lang.String">$0.lastname</lastname>
+  <anniversary clover:dataType="java.util.Calendar">$0.anniversary</anniversary>
+  <clover:element clover:name="address1_telephone3" clover:dataType="java.lang.String">$0.address1_telephone3</clover:element>
+  <createdbyyominame clover:dataType="java.lang.String">$0.createdbyyominame</createdbyyominame>
+  <clover:element clover:name="address1_primarycontactname" clover:dataType="java.lang.String">$0.address1_primarycontactname</clover:element>
+  <donotbulkpostalmail clover:dataType="java.lang.Boolean">$0.donotbulkpostalmail</donotbulkpostalmail>
+  <clover:element clover:name="address3_upszone" clover:dataType="java.lang.String">$0.address3_upszone</clover:element>
+  <modifiedbyname clover:dataType="java.lang.String">$0.modifiedbyname</modifiedbyname>
+  <numberofchildren clover:dataType="java.lang.Integer">$0.numberofchildren</numberofchildren>
+  <shippingmethodcode clover:dataType="java.lang.Integer">$0.shippingmethodcode</shippingmethodcode>
+  <yomilastname clover:dataType="java.lang.String">$0.yomilastname</yomilastname>
+  <firstname clover:dataType="java.lang.String">$0.firstname</firstname>
+  <clover:element clover:name="address3_addressid" clover:dataType="java.lang.String">$0.address3_addressid</clover:element>
+  <clover:element clover:name="address2_postalcode" clover:dataType="java.lang.String">$0.address2_postalcode</clover:element>
+  <websiteurl clover:dataType="java.lang.String">$0.websiteurl</websiteurl>
+  <parentcontactidyominame clover:dataType="java.lang.String">$0.parentcontactidyominame</parentcontactidyominame>
+  <accountidname clover:dataType="java.lang.String">$0.accountidname</accountidname>
+  <telephone1 clover:dataType="java.lang.String">$0.telephone1</telephone1>
+  <clover:element clover:name="entityimage_timestamp" clover:dataType="java.lang.Long">$0.entityimage_timestamp</clover:element>
+  <callback clover:dataType="java.lang.String">$0.callback</callback>
+  <mastercontactidname clover:dataType="java.lang.String">$0.mastercontactidname</mastercontactidname>
+  <donotbulkemail clover:dataType="java.lang.Boolean">$0.donotbulkemail</donotbulkemail>
+  <clover:element clover:name="address1_freighttermscode" clover:dataType="java.lang.Integer">$0.address1_freighttermscode</clover:element>
+  <clover:element clover:name="preferredserviceid_referenceto_service" clover:dataType="java.lang.String">$0.preferredserviceid_referenceto_service</clover:element>
+  <jobtitle clover:dataType="java.lang.String">$0.jobtitle</jobtitle>
+  <clover:element clover:name="owningteam_referenceto_team" clover:dataType="java.lang.String">$0.owningteam_referenceto_team</clover:element>
+  <accountidyominame clover:dataType="java.lang.String">$0.accountidyominame</accountidyominame>
+  <clover:element clover:name="address1_utcoffset" clover:dataType="java.lang.Integer">$0.address1_utcoffset</clover:element>
+  <clover:element clover:name="address2_telephone1" clover:dataType="java.lang.String">$0.address2_telephone1</clover:element>
+  <creditlimit clover:dataType="java.math.BigDecimal">$0.creditlimit</creditlimit>
+  <suffix clover:dataType="java.lang.String">$0.suffix</suffix>
+  <timezoneruleversionnumber clover:dataType="java.lang.Integer">$0.timezoneruleversionnumber</timezoneruleversionnumber>
+  <subscriptionid clover:dataType="java.lang.String">$0.subscriptionid</subscriptionid>
+  <clover:element clover:name="address3_utcoffset" clover:dataType="java.lang.Integer">$0.address3_utcoffset</clover:element>
+  <clover:element clover:name="address3_composite" clover:dataType="java.lang.String">$0.address3_composite</clover:element>
+  <leadsourcecode clover:dataType="java.lang.Integer">$0.leadsourcecode</leadsourcecode>
+  <clover:element clover:name="address2_telephone3" clover:dataType="java.lang.String">$0.address2_telephone3</clover:element>
+  <clover:element clover:name="address3_name" clover:dataType="java.lang.String">$0.address3_name</clover:element>
+  <clover:element clover:name="accountid_referenceto_account" clover:dataType="java.lang.String">$0.accountid_referenceto_account</clover:element>
+  <educationcode clover:dataType="java.lang.Integer">$0.educationcode</educationcode>
+  <preferredappointmenttimecode clover:dataType="java.lang.Integer">$0.preferredappointmenttimecode</preferredappointmenttimecode>
+  <preferredserviceidname clover:dataType="java.lang.String">$0.preferredserviceidname</preferredserviceidname>
+  <modifiedonbehalfbyname clover:dataType="java.lang.String">$0.modifiedonbehalfbyname</modifiedonbehalfbyname>
+  <originatingleadidname clover:dataType="java.lang.String">$0.originatingleadidname</originatingleadidname>
+  <traversedpath clover:dataType="java.lang.String">$0.traversedpath</traversedpath>
+  <clover:element clover:name="createdonbehalfby_referenceto_systemuser" clover:dataType="java.lang.String">$0.createdonbehalfby_referenceto_systemuser</clover:element>
+  <clover:element clover:name="entityimage_url" clover:dataType="java.lang.String">$0.entityimage_url</clover:element>
+  <clover:element clover:name="address1_longitude" clover:dataType="java.lang.Double">$0.address1_longitude</clover:element>
+  <clover:element clover:name="address2_name" clover:dataType="java.lang.String">$0.address2_name</clover:element>
+  <clover:element clover:name="aging30_base" clover:dataType="java.math.BigDecimal">$0.aging30_base</clover:element>
+  <originatingleadidyominame clover:dataType="java.lang.String">$0.originatingleadidyominame</originatingleadidyominame>
+  <clover:element clover:name="address2_shippingmethodcode" clover:dataType="java.lang.Integer">$0.address2_shippingmethodcode</clover:element>
+  <owneridtype clover:dataType="java.lang.String">$0.owneridtype</owneridtype>
+  <clover:element clover:name="address1_composite" clover:dataType="java.lang.String">$0.address1_composite</clover:element>
+  <spousesname clover:dataType="java.lang.String">$0.spousesname</spousesname>
+  <clover:element clover:name="creditlimit_base" clover:dataType="java.math.BigDecimal">$0.creditlimit_base</clover:element>
+  <managername clover:dataType="java.lang.String">$0.managername</managername>
+  <clover:element clover:name="address2_upszone" clover:dataType="java.lang.String">$0.address2_upszone</clover:element>
+  <emailaddress1 clover:dataType="java.lang.String">$0.emailaddress1</emailaddress1>
+  <clover:element clover:name="address2_primarycontactname" clover:dataType="java.lang.String">$0.address2_primarycontactname</clover:element>
+  <clover:element clover:name="annualincome_base" clover:dataType="java.math.BigDecimal">$0.annualincome_base</clover:element>
+  <clover:element clover:name="address3_telephone2" clover:dataType="java.lang.String">$0.address3_telephone2</clover:element>
+</contact>]]></attr>
+<attr name="_data_format"><![CDATA[MAP]]></attr>
+<attr name="__metadata"><![CDATA[true]]></attr>
+</Node>
+<Edge debugMode="true" fromNode="BEAN_READER0:0" guiBendpoints="" id="Edge0" inPort="Port 0 (in)" metadata="45eac628-9743-490b-97e9-0547c7a58b2a" outPort="Port 0 (out)" toNode="FOREACH_SFDC_CONTACT_CONTACT:0"/>
+<Edge debugMode="true" fromNode="FOREACH_SFDC_CONTACT_CONTACT:0" guiBendpoints="" id="Edge1" inPort="Port 0 (in)" metadata="eb02a42b-eb06-4d51-93f4-a124df504988" outPort="Port 0 (out)" toNode="MAP_WRITER0:0"/>
+</Phase>
+</Graph>

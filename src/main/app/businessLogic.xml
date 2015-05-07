@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:spring="http://www.springframework.org/schema/beans" xmlns:dynamicscrm="http://www.mulesoft.org/schema/mule/dynamicscrm"
+	xmlns:data-mapper="http://www.mulesoft.org/schema/mule/ee/data-mapper"
+	xmlns:core="http://www.mulesoft.org/schema/mule/core"
+	xmlns="http://www.mulesoft.org/schema/mule/core" 
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:batch="http://www.mulesoft.org/schema/mule/batch"
+	xmlns:json="http://www.mulesoft.org/schema/mule/json"
+	version="EE-3.6.1"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/batch http://www.mulesoft.org/schema/mule/batch/current/mule-batch.xsd
+http://www.mulesoft.org/schema/mule/json http://www.mulesoft.org/schema/mule/json/current/mule-json.xsd
+http://www.mulesoft.org/schema/mule/ee/data-mapper http://www.mulesoft.org/schema/mule/ee/data-mapper/current/mule-data-mapper.xsd
+http://www.mulesoft.org/schema/mule/dynamicscrm http://www.mulesoft.org/schema/mule/dynamicscrm/current/mule-dynamicscrm.xsd
+http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-current.xsd">
+    <data-mapper:config name="Map_To_contact" transformationGraphPath="map_to_contact.grf" doc:name="Map_To_contact"/>
+    <data-mapper:config name="Map_To_contact_1" transformationGraphPath="map_to_contact_1.grf" doc:name="Map_To_contact_1"/>
+
+	<batch:job name="migrateContactsBatch">
+		<batch:threading-profile poolExhaustedAction="WAIT" />
+
+		<batch:process-records>
+			<batch:step name="getContactFromDynamicsCrmStep">
+				<enricher doc:name="store in recordVar 'msdynContact'"
+					source="#[payload.size() == 0 ? NullPayload.getInstance() : payload.next()]" target="#[recordVars['msdynContact']]">
+                    <dynamicscrm:retrieve-multiple-by-query config-ref="Microsoft_Dynamics_CRM" query="dsql:SELECT fullname,contactid FROM contact WHERE fullname = '#[payload[&quot;Name&quot;]]'" doc:name="Query Microsoft Dynamics CRM for Contact"/>
+				</enricher>
+			</batch:step>
+			
+			<batch:step name="updateContactsInDynamicsCrmStep" accept-expression="!(recordVars['msdynContact'] is NullPayload)">
+
+                <data-mapper:transform config-ref="Map_To_contact" doc:name="Salesforce Contact to Ms Dynamics Contact">
+                    <data-mapper:input-arguments>
+                        <data-mapper:input-argument key="Id">recordVars['msdynContact']['contactid']</data-mapper:input-argument>
+                    </data-mapper:input-arguments>
+                </data-mapper:transform>
+ 				<batch:commit size="2" doc:name="Batch Commit"> 
+                    <dynamicscrm:update-multiple config-ref="Microsoft_Dynamics_CRM"  logicalName="contact" doc:name="Update Contact" >
+                        <dynamicscrm:attributes-list ref="#[payload]"/>
+                    </dynamicscrm:update-multiple>
+					<logger message="Update Dynamics CRM response: #[payload]"
+						level="INFO" doc:name="Log response" />
+ 				</batch:commit>
+			</batch:step>
+
+			<batch:step name="insertContactInDynamicsCrmStep" accept-expression="(recordVars['msdynContact'] is NullPayload)">
+                <data-mapper:transform config-ref="Map_To_contact_1" doc:name="Salesforce Contact to Ms Dynamics Contact"/>
+				<batch:commit size="2" doc:name="Batch Commit">
+                    <dynamicscrm:create-multiple config-ref="Microsoft_Dynamics_CRM" logicalName="contact" doc:name="Insert Contacts">
+                        <dynamicscrm:attributes-list ref="#[payload]"/>
+                    </dynamicscrm:create-multiple>
+					<logger message="Insert Dynamics CRM response: #[payload]"	level="INFO" doc:name="Log response" />
+				</batch:commit>
+			</batch:step>
+
+		</batch:process-records>
+		<batch:on-complete>
+            <json:object-to-json-transformer doc:name="Transform BatchJobInstance to JSON"/>
+            <logger message="Migration process has finished: #[payload]" level="INFO" doc:name="Log 'Migration process has finished'"/>
+		</batch:on-complete>
+	</batch:job>
+</mule>

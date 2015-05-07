@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mule xmlns:dynamicscrm="http://www.mulesoft.org/schema/mule/dynamicscrm"
+xmlns:sfdc="http://www.mulesoft.org/schema/mule/sfdc" 
+xmlns="http://www.mulesoft.org/schema/mule/core" 
+xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" 
+version="EE-3.6.1" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/sfdc http://www.mulesoft.org/schema/mule/sfdc/current/mule-sfdc.xsd
+http://www.mulesoft.org/schema/mule/dynamicscrm http://www.mulesoft.org/schema/mule/dynamicscrm/current/mule-dynamicscrm.xsd">
+    <sub-flow name="retrieveContactFromMSDYNFlow">
+        <dynamicscrm:retrieve-multiple-by-query config-ref="Microsoft_Dynamics_CRM" query="dsql:SELECT fullname, fax, telephone1, description, contactid, emailaddress1 FROM contact WHERE fullname = '#[payload]'" doc:name="Microsoft Dynamics CRM"/>
+
+    </sub-flow>
+    <sub-flow name="deleteContactInMSDYNFlow">
+        <foreach doc:name="For Each">
+            <dynamicscrm:delete config-ref="Microsoft_Dynamics_CRM" logicalName="contact" doc:name="Microsoft Dynamics CRM"/>
+        </foreach>
+    </sub-flow>
+    <sub-flow name="createContactinSFDCFlow">
+        <sfdc:create config-ref="Salesforce" type="Contact" doc:name="Salesforce">
+            <sfdc:objects ref="#[payload]"/>
+        </sfdc:create>
+    </sub-flow>
+    <sub-flow name="deleteContactInSFDCFlow">
+        <sfdc:delete config-ref="Salesforce" doc:name="Salesforce">
+            <sfdc:ids ref="#[payload]"/>
+        </sfdc:delete>
+    </sub-flow>
+
+
+</mule>

@@ -1,0 +1,89 @@
+<?xml version="1.0"?>
+<configuration>
+	<placeholders>
+		<placeholder id="template_name">Salesforce to MS Dynamics Contact Broadcast</placeholder>
+	</placeholders>
+	<sections>
+		<section id="use_case">
+As a Salesforce admin I want to synchronize Contacts between Salesfoce and MS Dynamics.
+
+This Template should serve as a foundation for setting an online sync of Contacts from SalesForce instance to MS Dynamics instance. Everytime there is a new Contact or a change in an already existing one, the integration will poll for changes in SalesForce source instance and it will be responsible for creating or updating the Contact in the target MS Dynamics instance.
+
+Requirements have been set not only to be used as examples, but also to establish a starting point to adapt your integration to your requirements.
+
+As implemented, this Anypoint Template leverage the [Batch Module](http://www.mulesoft.org/documentation/display/current/Batch+Processing)
+The batch job is divided in Input, Process and On Complete stages.
+The integration is triggered by a poll defined in the flow that is going to trigger the application, querying newest SalesForce updates/creations matching a filter criteria and executing the batch job.
+During the Process stage, each Salesforce Contact will be checked, if it has an existing matching Contact in the MS Dynamics instance.
+The last step of the Process stage will insert/update Contacts in MS Dynamics.
+Finally during the On Complete stage the Template will log output statistics data into the console.
+		</section>
+		<section id="considerations">
+<![CDATA[
+To make this Anypoint Template run, there are certain preconditions that must be considered. All of them deal with the preparations in both, that must be made in order for all to run smoothly. 
+**Failling to do so could lead to unexpected behavior of the template.**
+
+]]>
+		</section>		
+		<section id="run_it">
+<![CDATA[
+See below.
+]]>
+		</section>
+		<section id="running_on_studio">
+<![CDATA[
+Once you have imported your Anypoint Template into Anypoint Studio you need to follow these steps to run it:
+
++ Locate the properties file `mule.dev.properties`, in src/main/resources
++ Complete all the properties required as per the examples in the section [Properties to be configured](#propertiestobeconfigured)
++ Once that is done, right click on you Anypoint Template project folder 
++ Hover you mouse over `"Run as"`
++ Click on  `"Mule Application"`
+]]>
+		</section>
+		<section id="application_configuration">
+		<![CDATA[
+**Application configuration**
+
++ page.size `100`
++ poll.frequencyMillis `60000`
++ poll.startDelayMillis `500`
++ watermark.default.expression `YESTERDAY`
+
+**Salesforce Connector configuration**
+
++ sfdc.username `joan.baez@orgb`
++ sfdc.password `JoanBaez456`
++ sfdc.securityToken `ces56arl7apQs56XTddf34X`
++ sfdc.url `https://login.salesforce.com/services/Soap/u/26.0`
+
+**MS Dynamics Connector configuration**
+
++ msdyn.user `msdyn_user`
++ msdyn.password `msdyn_password`
++ msdyn.url `https://{your MS Dynamics url}`
+
+]]>
+		</section>
+		<section id="api_calls">
+<![CDATA[
+Salesforce imposes limits on the number of API Calls that can be made. However, we make API call to Salesforce only once during migration, so this is not something to worry about. 
+]]>
+		</section>
+		<section id="default_business_logic_xml">
+		<![CDATA[
+Functional aspect of the Template is implemented on this XML, directed by one flow that will poll for Salesforce creations/updates. The several message processors constitute four high level actions that fully implement the logic of this Template:
+
+1. During the Input stage the Template will go to the Salesforce and query all the existing Contacts that match the filter criteria.
+2. During the Process stage, each Contact Name will be checked in Fullname field in MS Dynamics, if it has an existing matching Contact in MS Dynamics.
+3. Then, according to the result of the second step, the update or create is performed in MS Dynamics.
+4. Finally during the On Complete stage the Template will log output statistics data into the console.
+]]>
+		</section>
+		<section id="default_endpoints_xml">
+		<![CDATA[
+This file is conformed by a Flow containing the Poll that will periodically query Salesforce for updated/created Contacts that meet the defined criteria in the query and then executing the batch job process with the query results.
+]]>
+		</section>
+	</sections>
+</configuration>
