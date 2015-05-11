@@ -1,6 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?><Graph __version="3.5.0" author="Admin" created="Mon May 04 07:10:27 CEST 2015" description="Map To contact" guiVersion="3.4.4.P" id="1430717723367" licenseCode="Unlicensed" licenseType="Unknown" modified="Mon May 04 07:10:27 CEST 2015" modifiedBy="Admin" name="Map_To_contact_1" revision="1.0" showComponentDetails="false">
+<?xml version="1.0" encoding="UTF-8"?><Graph __version="3.5.0" author="Admin" created="Mon May 11 08:56:24 CEST 2015" description="Map To List&lt;contact&gt;" guiVersion="3.4.4.P" id="1431336906818" licenseCode="Unlicensed" licenseType="Unknown" modified="Mon May 11 08:56:24 CEST 2015" modifiedBy="Admin" name="Map_To_List_contact__1" revision="1.0" showComponentDetails="false">
 <Global>
-<Metadata __index="0" __referenceCounter="1" __sourcePath="{}/contact" _dataStructure="OBJECT" _id="__id" _type="Output" id="eb02a42b-eb06-4d51-93f4-a124df504988">
+<Metadata __index="0" __referenceCounter="1" __sourcePath="{}/contact" _dataStructure="SINGLE_DIMENSIONAL_COLLECTION" _id="__id" _type="Output" id="46c9a142-ff94-4aac-8d02-8a96077cb3ea">
 <Record fieldDelimiter="," name="contact" recordDelimiter="\n\\|\r\n\\|\r" type="delimited">
 <Field __artificialType="_id" __systemManaged="true" name="__id" type="string"/>
 <Field __implementationClass="java.lang.String" __index="0" __sourcePath="{}/contact/address2_x005fline2" containerType="SINGLE" label="address2_line2" name="address2_line2" type="string"/>
@@ -219,16 +219,16 @@
 <Field __implementationClass="java.lang.String" __index="213" __sourcePath="{}/contact/address3_x005ftelephone2" containerType="SINGLE" label="address3_telephone2" name="address3_telephone2" type="string"/>
 </Record>
 </Metadata>
-<Metadata __index="0" __referenceCounter="1" __sourcePath="{}/SfdcContact" _dataStructure="OBJECT" _id="__id" _type="Input" id="45eac628-9743-490b-97e9-0547c7a58b2a">
-<Record fieldDelimiter="," name="SfdcContact" recordDelimiter="\n\\|\r\n\\|\r" type="delimited">
+<Metadata __index="0" __referenceCounter="1" __sourcePath="{}/contactsInSFDC" _dataStructure="SINGLE_DIMENSIONAL_COLLECTION" _id="__id" _type="Input" id="28abc68e-1440-482e-913c-61cb554980dd">
+<Record fieldDelimiter="," name="contactsInSFDC" recordDelimiter="\n\\|\r\n\\|\r" type="delimited">
 <Field __artificialType="_id" __systemManaged="true" name="__id" type="string"/>
-<Field __index="1" __sourcePath="{}/SfdcContact/Email" containerType="SINGLE" label="Email" name="Email" type="string"/>
-<Field __index="0" __sourcePath="{}/SfdcContact/Name" containerType="SINGLE" label="Name" name="Name" type="string"/>
-<Field __sourcePath="{}/SfdcContact/Fax" containerType="SINGLE" label="Fax" name="Fax" type="string"/>
-<Field __sourcePath="{}/SfdcContact/Phone" containerType="SINGLE" label="Phone" name="Phone" type="string"/>
-<Field __sourcePath="{}/SfdcContact/FirstName" containerType="SINGLE" label="FirstName" name="FirstName" type="string"/>
-<Field __sourcePath="{}/SfdcContact/LastName" containerType="SINGLE" label="LastName" name="LastName" type="string"/>
-<Field __sourcePath="{}/SfdcContact/Description" containerType="SINGLE" label="Description" name="Description" type="string"/>
+<Field __index="1" __sourcePath="{}/contactsInSFDC/Email" containerType="SINGLE" label="Email" name="Email" type="string"/>
+<Field __index="2" __sourcePath="{}/contactsInSFDC/Fax" containerType="SINGLE" label="Fax" name="Fax" type="string"/>
+<Field __index="0" __sourcePath="{}/contactsInSFDC/Name" containerType="SINGLE" label="Name" name="Name" type="string"/>
+<Field __index="3" __sourcePath="{}/contactsInSFDC/Phone" containerType="SINGLE" label="Phone" name="Phone" type="string"/>
+<Field __sourcePath="{}/contactsInSFDC/FirstName" containerType="SINGLE" label="FirstName" name="FirstName" type="string"/>
+<Field __sourcePath="{}/contactsInSFDC/LastName" containerType="SINGLE" label="LastName" name="LastName" type="string"/>
+<Field __sourcePath="{}/contactsInSFDC/Description" containerType="SINGLE" label="Description" name="Description" type="string"/>
 </Record>
 </Metadata>
 <Dictionary>
@@ -241,8 +241,8 @@
 <attr name="mapping"><![CDATA[<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <Context outPort="0" sequenceField="__id" xpath=".">
   <Mapping cloverField="Email" trim="true" xpath="Email"/>
-  <Mapping cloverField="Name" trim="true" xpath="Name"/>
   <Mapping cloverField="Fax" trim="true" xpath="Fax"/>
+  <Mapping cloverField="Name" trim="true" xpath="Name"/>
   <Mapping cloverField="Phone" trim="true" xpath="Phone"/>
   <Mapping cloverField="FirstName" trim="true" xpath="FirstName"/>
   <Mapping cloverField="LastName" trim="true" xpath="LastName"/>
@@ -251,7 +251,7 @@
 ]]></attr>
 <attr name="_data_format"><![CDATA[MAP]]></attr>
 </Node>
-<Node enabled="enabled" guiName="Foreach 'SfdcContact' -&gt; 'contact'" guiX="460" guiY="20" id="FOREACH_SFDC_CONTACT_CONTACT" transformClass="com.mulesoft.datamapper.transform.MelRecordTransform" type="REFORMAT">
+<Node enabled="enabled" guiName="Foreach 'contactsInSFDC' -&gt; 'contact'" guiX="460" guiY="20" id="FOREACH_CONTACTS_IN_SFDC_CONTACT" transformClass="com.mulesoft.datamapper.transform.MelRecordTransform" type="REFORMAT">
 <attr name="melScript"><![CDATA[//MEL
 //START -> DO NOT REMOVE
 output.__id = input.__id;
@@ -263,230 +263,233 @@ output.fax = input.Fax;
 output.telephone1 = input.Phone;
 output.firstname = input.FirstName;
 output.lastname = input.LastName;
-output.description = input.Description;]]></attr>
+output.description = input.Description;
+]]></attr>
 </Node>
 <Node enabled="enabled" fileURL="dict:outputPayload" guiName="Map&lt;k,v&gt; WRITER" guiX="900" guiY="20" id="MAP_WRITER0" type="MAP_WRITER">
 <attr name="mapping"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
-<contact xmlns:clover="http://www.cloveretl.com/ns/xmlmapping" clover:inPort="0">
-  <clover:element clover:name="address2_line2" clover:dataType="java.lang.String">$0.address2_line2</clover:element>
-  <clover:element clover:name="address3_stateorprovince" clover:dataType="java.lang.String">$0.address3_stateorprovince</clover:element>
-  <clover:element clover:name="createdby_referenceto_systemuser" clover:dataType="java.lang.String">$0.createdby_referenceto_systemuser</clover:element>
-  <exchangerate clover:dataType="java.math.BigDecimal">$0.exchangerate</exchangerate>
-  <clover:element clover:name="address3_postofficebox" clover:dataType="java.lang.String">$0.address3_postofficebox</clover:element>
-  <ftpsiteurl clover:dataType="java.lang.String">$0.ftpsiteurl</ftpsiteurl>
-  <yomimiddlename clover:dataType="java.lang.String">$0.yomimiddlename</yomimiddlename>
-  <aging90 clover:dataType="java.math.BigDecimal">$0.aging90</aging90>
-  <clover:element clover:name="address2_county" clover:dataType="java.lang.String">$0.address2_county</clover:element>
-  <clover:element clover:name="defaultpricelevelid_referenceto_pricelevel" clover:dataType="java.lang.String">$0.defaultpricelevelid_referenceto_pricelevel</clover:element>
-  <middlename clover:dataType="java.lang.String">$0.middlename</middlename>
-  <clover:element clover:name="address1_line3" clover:dataType="java.lang.String">$0.address1_line3</clover:element>
-  <clover:element clover:name="address1_latitude" clover:dataType="java.lang.Double">$0.address1_latitude</clover:element>
-  <donotfax clover:dataType="java.lang.Boolean">$0.donotfax</donotfax>
-  <aging30 clover:dataType="java.math.BigDecimal">$0.aging30</aging30>
-  <clover:element clover:name="address3_freighttermscode" clover:dataType="java.lang.Integer">$0.address3_freighttermscode</clover:element>
-  <importsequencenumber clover:dataType="java.lang.Integer">$0.importsequencenumber</importsequencenumber>
-  <clover:element clover:name="address1_addresstypecode" clover:dataType="java.lang.Integer">$0.address1_addresstypecode</clover:element>
-  <company clover:dataType="java.lang.String">$0.company</company>
-  <createdonbehalfbyyominame clover:dataType="java.lang.String">$0.createdonbehalfbyyominame</createdonbehalfbyyominame>
-  <clover:element clover:name="parentcustomerid_referenceto_account" clover:dataType="java.lang.String">$0.parentcustomerid_referenceto_account</clover:element>
-  <clover:element clover:name="parentcustomerid_referenceto_contact" clover:dataType="java.lang.String">$0.parentcustomerid_referenceto_contact</clover:element>
-  <yomifullname clover:dataType="java.lang.String">$0.yomifullname</yomifullname>
-  <clover:element clover:name="address1_county" clover:dataType="java.lang.String">$0.address1_county</clover:element>
-  <clover:element clover:name="address2_line1" clover:dataType="java.lang.String">$0.address2_line1</clover:element>
-  <clover:element clover:name="aging90_base" clover:dataType="java.math.BigDecimal">$0.aging90_base</clover:element>
-  <createdbyname clover:dataType="java.lang.String">$0.createdbyname</createdbyname>
-  <mobilephone clover:dataType="java.lang.String">$0.mobilephone</mobilephone>
-  <managerphone clover:dataType="java.lang.String">$0.managerphone</managerphone>
-  <donotsendmm clover:dataType="java.lang.Boolean">$0.donotsendmm</donotsendmm>
-  <preferredcontactmethodcode clover:dataType="java.lang.Integer">$0.preferredcontactmethodcode</preferredcontactmethodcode>
-  <clover:element clover:name="modifiedby_referenceto_systemuser" clover:dataType="java.lang.String">$0.modifiedby_referenceto_systemuser</clover:element>
-  <clover:element clover:name="address3_city" clover:dataType="java.lang.String">$0.address3_city</clover:element>
-  <mastercontactidyominame clover:dataType="java.lang.String">$0.mastercontactidyominame</mastercontactidyominame>
-  <yomifirstname clover:dataType="java.lang.String">$0.yomifirstname</yomifirstname>
-  <clover:element clover:name="address1_name" clover:dataType="java.lang.String">$0.address1_name</clover:element>
-  <externaluseridentifier clover:dataType="java.lang.String">$0.externaluseridentifier</externaluseridentifier>
-  <clover:element clover:name="address1_telephone1" clover:dataType="java.lang.String">$0.address1_telephone1</clover:element>
-  <clover:element clover:name="address1_postalcode" clover:dataType="java.lang.String">$0.address1_postalcode</clover:element>
-  <clover:element clover:name="preferredequipmentid_referenceto_equipment" clover:dataType="java.lang.String">$0.preferredequipmentid_referenceto_equipment</clover:element>
-  <nickname clover:dataType="java.lang.String">$0.nickname</nickname>
-  <clover:element clover:name="address3_country" clover:dataType="java.lang.String">$0.address3_country</clover:element>
-  <preferredequipmentidname clover:dataType="java.lang.String">$0.preferredequipmentidname</preferredequipmentidname>
-  <clover:element clover:name="address2_addresstypecode" clover:dataType="java.lang.Integer">$0.address2_addresstypecode</clover:element>
-  <customertypecode clover:dataType="java.lang.Integer">$0.customertypecode</customertypecode>
-  <statecode clover:dataType="java.lang.Integer">$0.statecode</statecode>
-  <isbackofficecustomer clover:dataType="java.lang.Boolean">$0.isbackofficecustomer</isbackofficecustomer>
-  <utcconversiontimezonecode clover:dataType="java.lang.Integer">$0.utcconversiontimezonecode</utcconversiontimezonecode>
-  <clover:element clover:name="address3_line2" clover:dataType="java.lang.String">$0.address3_line2</clover:element>
-  <lastusedincampaign clover:dataType="java.util.Calendar">$0.lastusedincampaign</lastusedincampaign>
-  <employeeid clover:dataType="java.lang.String">$0.employeeid</employeeid>
-  <participatesinworkflow clover:dataType="java.lang.Boolean">$0.participatesinworkflow</participatesinworkflow>
-  <owneridyominame clover:dataType="java.lang.String">$0.owneridyominame</owneridyominame>
-  <clover:element clover:name="address3_longitude" clover:dataType="java.lang.Double">$0.address3_longitude</clover:element>
-  <department clover:dataType="java.lang.String">$0.department</department>
-  <parentcustomeridtype clover:dataType="java.lang.String">$0.parentcustomeridtype</parentcustomeridtype>
-  <donotpostalmail clover:dataType="java.lang.Boolean">$0.donotpostalmail</donotpostalmail>
-  <clover:element clover:name="address2_postofficebox" clover:dataType="java.lang.String">$0.address2_postofficebox</clover:element>
-  <clover:element clover:name="owningbusinessunit_referenceto_businessunit" clover:dataType="java.lang.String">$0.owningbusinessunit_referenceto_businessunit</clover:element>
-  <accountrolecode clover:dataType="java.lang.Integer">$0.accountrolecode</accountrolecode>
-  <statuscode clover:dataType="java.lang.Integer">$0.statuscode</statuscode>
-  <clover:element clover:name="address2_country" clover:dataType="java.lang.String">$0.address2_country</clover:element>
-  <clover:element clover:name="address3_telephone3" clover:dataType="java.lang.String">$0.address3_telephone3</clover:element>
-  <clover:element clover:name="address2_addressid" clover:dataType="java.lang.String">$0.address2_addressid</clover:element>
-  <clover:element clover:name="address2_latitude" clover:dataType="java.lang.Double">$0.address2_latitude</clover:element>
-  <aging60 clover:dataType="java.math.BigDecimal">$0.aging60</aging60>
-  <childrensnames clover:dataType="java.lang.String">$0.childrensnames</childrensnames>
-  <clover:element clover:name="address1_line1" clover:dataType="java.lang.String">$0.address1_line1</clover:element>
-  <clover:element clover:name="address3_latitude" clover:dataType="java.lang.Double">$0.address3_latitude</clover:element>
-  <modifiedbyyominame clover:dataType="java.lang.String">$0.modifiedbyyominame</modifiedbyyominame>
-  <modifiedonbehalfbyyominame clover:dataType="java.lang.String">$0.modifiedonbehalfbyyominame</modifiedonbehalfbyyominame>
-  <parentcustomeridname clover:dataType="java.lang.String">$0.parentcustomeridname</parentcustomeridname>
-  <overriddencreatedon clover:dataType="java.util.Calendar">$0.overriddencreatedon</overriddencreatedon>
-  <clover:element clover:name="address1_telephone2" clover:dataType="java.lang.String">$0.address1_telephone2</clover:element>
-  <clover:element clover:name="address3_postalcode" clover:dataType="java.lang.String">$0.address3_postalcode</clover:element>
-  <clover:element clover:name="address2_city" clover:dataType="java.lang.String">$0.address2_city</clover:element>
-  <clover:element clover:name="address3_shippingmethodcode" clover:dataType="java.lang.Integer">$0.address3_shippingmethodcode</clover:element>
-  <home2 clover:dataType="java.lang.String">$0.home2</home2>
-  <clover:element clover:name="parentcontactid_referenceto_contact" clover:dataType="java.lang.String">$0.parentcontactid_referenceto_contact</clover:element>
-  <clover:element clover:name="address3_fax" clover:dataType="java.lang.String">$0.address3_fax</clover:element>
-  <clover:element clover:name="owninguser_referenceto_systemuser" clover:dataType="java.lang.String">$0.owninguser_referenceto_systemuser</clover:element>
-  <clover:element clover:name="address2_utcoffset" clover:dataType="java.lang.Integer">$0.address2_utcoffset</clover:element>
-  <creditonhold clover:dataType="java.lang.Boolean">$0.creditonhold</creditonhold>
-  <clover:element clover:name="address3_addresstypecode" clover:dataType="java.lang.Integer">$0.address3_addresstypecode</clover:element>
-  <assistantphone clover:dataType="java.lang.String">$0.assistantphone</assistantphone>
-  <haschildrencode clover:dataType="java.lang.Integer">$0.haschildrencode</haschildrencode>
-  <parentcustomeridyominame clover:dataType="java.lang.String">$0.parentcustomeridyominame</parentcustomeridyominame>
-  <ownerid clover:dataType="java.lang.String">$0.ownerid</ownerid>
-  <clover:element clover:name="address2_longitude" clover:dataType="java.lang.Double">$0.address2_longitude</clover:element>
-  <transactioncurrencyidname clover:dataType="java.lang.String">$0.transactioncurrencyidname</transactioncurrencyidname>
-  <clover:element clover:name="address1_city" clover:dataType="java.lang.String">$0.address1_city</clover:element>
-  <clover:element clover:name="address1_addressid" clover:dataType="java.lang.String">$0.address1_addressid</clover:element>
-  <annualincome clover:dataType="java.math.BigDecimal">$0.annualincome</annualincome>
-  <governmentid clover:dataType="java.lang.String">$0.governmentid</governmentid>
-  <clover:element clover:name="address1_country" clover:dataType="java.lang.String">$0.address1_country</clover:element>
-  <assistantname clover:dataType="java.lang.String">$0.assistantname</assistantname>
-  <business2 clover:dataType="java.lang.String">$0.business2</business2>
-  <telephone2 clover:dataType="java.lang.String">$0.telephone2</telephone2>
-  <territorycode clover:dataType="java.lang.Integer">$0.territorycode</territorycode>
-  <donotphone clover:dataType="java.lang.Boolean">$0.donotphone</donotphone>
-  <clover:element clover:name="address1_shippingmethodcode" clover:dataType="java.lang.Integer">$0.address1_shippingmethodcode</clover:element>
-  <paymenttermscode clover:dataType="java.lang.Integer">$0.paymenttermscode</paymenttermscode>
-  <clover:element clover:name="address2_line3" clover:dataType="java.lang.String">$0.address2_line3</clover:element>
-  <fullname clover:dataType="java.lang.String">$0.fullname</fullname>
-  <clover:element clover:name="address1_line2" clover:dataType="java.lang.String">$0.address1_line2</clover:element>
-  <description clover:dataType="java.lang.String">$0.description</description>
-  <defaultpricelevelidname clover:dataType="java.lang.String">$0.defaultpricelevelidname</defaultpricelevelidname>
-  <emailaddress3 clover:dataType="java.lang.String">$0.emailaddress3</emailaddress3>
-  <gendercode clover:dataType="java.lang.Integer">$0.gendercode</gendercode>
-  <clover:element clover:name="address2_fax" clover:dataType="java.lang.String">$0.address2_fax</clover:element>
-  <clover:element clover:name="address2_freighttermscode" clover:dataType="java.lang.Integer">$0.address2_freighttermscode</clover:element>
-  <clover:element clover:name="address2_telephone2" clover:dataType="java.lang.String">$0.address2_telephone2</clover:element>
-  <createdonbehalfbyname clover:dataType="java.lang.String">$0.createdonbehalfbyname</createdonbehalfbyname>
-  <contactid clover:dataType="java.lang.String">$0.contactid</contactid>
-  <clover:element clover:name="preferredsystemuserid_referenceto_systemuser" clover:dataType="java.lang.String">$0.preferredsystemuserid_referenceto_systemuser</clover:element>
-  <clover:element clover:name="modifiedonbehalfby_referenceto_systemuser" clover:dataType="java.lang.String">$0.modifiedonbehalfby_referenceto_systemuser</clover:element>
-  <clover:element clover:name="address2_composite" clover:dataType="java.lang.String">$0.address2_composite</clover:element>
-  <birthdate clover:dataType="java.util.Calendar">$0.birthdate</birthdate>
-  <clover:element clover:name="address1_stateorprovince" clover:dataType="java.lang.String">$0.address1_stateorprovince</clover:element>
-  <preferredsystemuseridyominame clover:dataType="java.lang.String">$0.preferredsystemuseridyominame</preferredsystemuseridyominame>
-  <pager clover:dataType="java.lang.String">$0.pager</pager>
-  <preferredsystemuseridname clover:dataType="java.lang.String">$0.preferredsystemuseridname</preferredsystemuseridname>
-  <familystatuscode clover:dataType="java.lang.Integer">$0.familystatuscode</familystatuscode>
-  <emailaddress2 clover:dataType="java.lang.String">$0.emailaddress2</emailaddress2>
-  <clover:element clover:name="address1_upszone" clover:dataType="java.lang.String">$0.address1_upszone</clover:element>
-  <stageid clover:dataType="java.lang.String">$0.stageid</stageid>
-  <salutation clover:dataType="java.lang.String">$0.salutation</salutation>
-  <clover:element clover:name="address1_fax" clover:dataType="java.lang.String">$0.address1_fax</clover:element>
-  <clover:element clover:name="address3_line3" clover:dataType="java.lang.String">$0.address3_line3</clover:element>
-  <createdon clover:dataType="java.util.Calendar">$0.createdon</createdon>
-  <clover:element clover:name="address1_postofficebox" clover:dataType="java.lang.String">$0.address1_postofficebox</clover:element>
-  <customersizecode clover:dataType="java.lang.Integer">$0.customersizecode</customersizecode>
-  <owneridname clover:dataType="java.lang.String">$0.owneridname</owneridname>
-  <versionnumber clover:dataType="java.lang.Long">$0.versionnumber</versionnumber>
-  <clover:element clover:name="address3_county" clover:dataType="java.lang.String">$0.address3_county</clover:element>
-  <clover:element clover:name="address3_telephone1" clover:dataType="java.lang.String">$0.address3_telephone1</clover:element>
-  <processid clover:dataType="java.lang.String">$0.processid</processid>
-  <clover:element clover:name="transactioncurrencyid_referenceto_transactioncurrency" clover:dataType="java.lang.String">$0.transactioncurrencyid_referenceto_transactioncurrency</clover:element>
-  <parentcontactidname clover:dataType="java.lang.String">$0.parentcontactidname</parentcontactidname>
-  <telephone3 clover:dataType="java.lang.String">$0.telephone3</telephone3>
-  <clover:element clover:name="masterid_referenceto_contact" clover:dataType="java.lang.String">$0.masterid_referenceto_contact</clover:element>
-  <clover:element clover:name="aging60_base" clover:dataType="java.math.BigDecimal">$0.aging60_base</clover:element>
-  <clover:element clover:name="address3_line1" clover:dataType="java.lang.String">$0.address3_line1</clover:element>
-  <entityimageid clover:dataType="java.lang.String">$0.entityimageid</entityimageid>
-  <merged clover:dataType="java.lang.Boolean">$0.merged</merged>
-  <clover:element clover:name="address2_stateorprovince" clover:dataType="java.lang.String">$0.address2_stateorprovince</clover:element>
-  <donotemail clover:dataType="java.lang.Boolean">$0.donotemail</donotemail>
-  <modifiedon clover:dataType="java.util.Calendar">$0.modifiedon</modifiedon>
-  <clover:element clover:name="address3_primarycontactname" clover:dataType="java.lang.String">$0.address3_primarycontactname</clover:element>
-  <fax clover:dataType="java.lang.String">$0.fax</fax>
-  <preferredappointmentdaycode clover:dataType="java.lang.Integer">$0.preferredappointmentdaycode</preferredappointmentdaycode>
-  <clover:element clover:name="originatingleadid_referenceto_lead" clover:dataType="java.lang.String">$0.originatingleadid_referenceto_lead</clover:element>
-  <lastname clover:dataType="java.lang.String">$0.lastname</lastname>
-  <anniversary clover:dataType="java.util.Calendar">$0.anniversary</anniversary>
-  <clover:element clover:name="address1_telephone3" clover:dataType="java.lang.String">$0.address1_telephone3</clover:element>
-  <createdbyyominame clover:dataType="java.lang.String">$0.createdbyyominame</createdbyyominame>
-  <clover:element clover:name="address1_primarycontactname" clover:dataType="java.lang.String">$0.address1_primarycontactname</clover:element>
-  <donotbulkpostalmail clover:dataType="java.lang.Boolean">$0.donotbulkpostalmail</donotbulkpostalmail>
-  <clover:element clover:name="address3_upszone" clover:dataType="java.lang.String">$0.address3_upszone</clover:element>
-  <modifiedbyname clover:dataType="java.lang.String">$0.modifiedbyname</modifiedbyname>
-  <numberofchildren clover:dataType="java.lang.Integer">$0.numberofchildren</numberofchildren>
-  <shippingmethodcode clover:dataType="java.lang.Integer">$0.shippingmethodcode</shippingmethodcode>
-  <yomilastname clover:dataType="java.lang.String">$0.yomilastname</yomilastname>
-  <firstname clover:dataType="java.lang.String">$0.firstname</firstname>
-  <clover:element clover:name="address3_addressid" clover:dataType="java.lang.String">$0.address3_addressid</clover:element>
-  <clover:element clover:name="address2_postalcode" clover:dataType="java.lang.String">$0.address2_postalcode</clover:element>
-  <websiteurl clover:dataType="java.lang.String">$0.websiteurl</websiteurl>
-  <parentcontactidyominame clover:dataType="java.lang.String">$0.parentcontactidyominame</parentcontactidyominame>
-  <accountidname clover:dataType="java.lang.String">$0.accountidname</accountidname>
-  <telephone1 clover:dataType="java.lang.String">$0.telephone1</telephone1>
-  <clover:element clover:name="entityimage_timestamp" clover:dataType="java.lang.Long">$0.entityimage_timestamp</clover:element>
-  <callback clover:dataType="java.lang.String">$0.callback</callback>
-  <mastercontactidname clover:dataType="java.lang.String">$0.mastercontactidname</mastercontactidname>
-  <donotbulkemail clover:dataType="java.lang.Boolean">$0.donotbulkemail</donotbulkemail>
-  <clover:element clover:name="address1_freighttermscode" clover:dataType="java.lang.Integer">$0.address1_freighttermscode</clover:element>
-  <clover:element clover:name="preferredserviceid_referenceto_service" clover:dataType="java.lang.String">$0.preferredserviceid_referenceto_service</clover:element>
-  <jobtitle clover:dataType="java.lang.String">$0.jobtitle</jobtitle>
-  <clover:element clover:name="owningteam_referenceto_team" clover:dataType="java.lang.String">$0.owningteam_referenceto_team</clover:element>
-  <accountidyominame clover:dataType="java.lang.String">$0.accountidyominame</accountidyominame>
-  <clover:element clover:name="address1_utcoffset" clover:dataType="java.lang.Integer">$0.address1_utcoffset</clover:element>
-  <clover:element clover:name="address2_telephone1" clover:dataType="java.lang.String">$0.address2_telephone1</clover:element>
-  <creditlimit clover:dataType="java.math.BigDecimal">$0.creditlimit</creditlimit>
-  <suffix clover:dataType="java.lang.String">$0.suffix</suffix>
-  <timezoneruleversionnumber clover:dataType="java.lang.Integer">$0.timezoneruleversionnumber</timezoneruleversionnumber>
-  <subscriptionid clover:dataType="java.lang.String">$0.subscriptionid</subscriptionid>
-  <clover:element clover:name="address3_utcoffset" clover:dataType="java.lang.Integer">$0.address3_utcoffset</clover:element>
-  <clover:element clover:name="address3_composite" clover:dataType="java.lang.String">$0.address3_composite</clover:element>
-  <leadsourcecode clover:dataType="java.lang.Integer">$0.leadsourcecode</leadsourcecode>
-  <clover:element clover:name="address2_telephone3" clover:dataType="java.lang.String">$0.address2_telephone3</clover:element>
-  <clover:element clover:name="address3_name" clover:dataType="java.lang.String">$0.address3_name</clover:element>
-  <clover:element clover:name="accountid_referenceto_account" clover:dataType="java.lang.String">$0.accountid_referenceto_account</clover:element>
-  <educationcode clover:dataType="java.lang.Integer">$0.educationcode</educationcode>
-  <preferredappointmenttimecode clover:dataType="java.lang.Integer">$0.preferredappointmenttimecode</preferredappointmenttimecode>
-  <preferredserviceidname clover:dataType="java.lang.String">$0.preferredserviceidname</preferredserviceidname>
-  <modifiedonbehalfbyname clover:dataType="java.lang.String">$0.modifiedonbehalfbyname</modifiedonbehalfbyname>
-  <originatingleadidname clover:dataType="java.lang.String">$0.originatingleadidname</originatingleadidname>
-  <traversedpath clover:dataType="java.lang.String">$0.traversedpath</traversedpath>
-  <clover:element clover:name="createdonbehalfby_referenceto_systemuser" clover:dataType="java.lang.String">$0.createdonbehalfby_referenceto_systemuser</clover:element>
-  <clover:element clover:name="entityimage_url" clover:dataType="java.lang.String">$0.entityimage_url</clover:element>
-  <clover:element clover:name="address1_longitude" clover:dataType="java.lang.Double">$0.address1_longitude</clover:element>
-  <clover:element clover:name="address2_name" clover:dataType="java.lang.String">$0.address2_name</clover:element>
-  <clover:element clover:name="aging30_base" clover:dataType="java.math.BigDecimal">$0.aging30_base</clover:element>
-  <originatingleadidyominame clover:dataType="java.lang.String">$0.originatingleadidyominame</originatingleadidyominame>
-  <clover:element clover:name="address2_shippingmethodcode" clover:dataType="java.lang.Integer">$0.address2_shippingmethodcode</clover:element>
-  <owneridtype clover:dataType="java.lang.String">$0.owneridtype</owneridtype>
-  <clover:element clover:name="address1_composite" clover:dataType="java.lang.String">$0.address1_composite</clover:element>
-  <spousesname clover:dataType="java.lang.String">$0.spousesname</spousesname>
-  <clover:element clover:name="creditlimit_base" clover:dataType="java.math.BigDecimal">$0.creditlimit_base</clover:element>
-  <managername clover:dataType="java.lang.String">$0.managername</managername>
-  <clover:element clover:name="address2_upszone" clover:dataType="java.lang.String">$0.address2_upszone</clover:element>
-  <emailaddress1 clover:dataType="java.lang.String">$0.emailaddress1</emailaddress1>
-  <clover:element clover:name="address2_primarycontactname" clover:dataType="java.lang.String">$0.address2_primarycontactname</clover:element>
-  <clover:element clover:name="annualincome_base" clover:dataType="java.math.BigDecimal">$0.annualincome_base</clover:element>
-  <clover:element clover:name="address3_telephone2" clover:dataType="java.lang.String">$0.address3_telephone2</clover:element>
-</contact>]]></attr>
+<clover:collection clover:name="contact" xmlns:clover="http://www.cloveretl.com/ns/xmlmapping">
+  <item clover:inPort="0">
+    <clover:element clover:name="address2_line2" clover:dataType="java.lang.String">$0.address2_line2</clover:element>
+    <clover:element clover:name="address3_stateorprovince" clover:dataType="java.lang.String">$0.address3_stateorprovince</clover:element>
+    <clover:element clover:name="createdby_referenceto_systemuser" clover:dataType="java.lang.String">$0.createdby_referenceto_systemuser</clover:element>
+    <exchangerate clover:dataType="java.math.BigDecimal">$0.exchangerate</exchangerate>
+    <clover:element clover:name="address3_postofficebox" clover:dataType="java.lang.String">$0.address3_postofficebox</clover:element>
+    <ftpsiteurl clover:dataType="java.lang.String">$0.ftpsiteurl</ftpsiteurl>
+    <yomimiddlename clover:dataType="java.lang.String">$0.yomimiddlename</yomimiddlename>
+    <aging90 clover:dataType="java.math.BigDecimal">$0.aging90</aging90>
+    <clover:element clover:name="address2_county" clover:dataType="java.lang.String">$0.address2_county</clover:element>
+    <clover:element clover:name="defaultpricelevelid_referenceto_pricelevel" clover:dataType="java.lang.String">$0.defaultpricelevelid_referenceto_pricelevel</clover:element>
+    <middlename clover:dataType="java.lang.String">$0.middlename</middlename>
+    <clover:element clover:name="address1_line3" clover:dataType="java.lang.String">$0.address1_line3</clover:element>
+    <clover:element clover:name="address1_latitude" clover:dataType="java.lang.Double">$0.address1_latitude</clover:element>
+    <donotfax clover:dataType="java.lang.Boolean">$0.donotfax</donotfax>
+    <aging30 clover:dataType="java.math.BigDecimal">$0.aging30</aging30>
+    <clover:element clover:name="address3_freighttermscode" clover:dataType="java.lang.Integer">$0.address3_freighttermscode</clover:element>
+    <importsequencenumber clover:dataType="java.lang.Integer">$0.importsequencenumber</importsequencenumber>
+    <clover:element clover:name="address1_addresstypecode" clover:dataType="java.lang.Integer">$0.address1_addresstypecode</clover:element>
+    <company clover:dataType="java.lang.String">$0.company</company>
+    <createdonbehalfbyyominame clover:dataType="java.lang.String">$0.createdonbehalfbyyominame</createdonbehalfbyyominame>
+    <clover:element clover:name="parentcustomerid_referenceto_account" clover:dataType="java.lang.String">$0.parentcustomerid_referenceto_account</clover:element>
+    <clover:element clover:name="parentcustomerid_referenceto_contact" clover:dataType="java.lang.String">$0.parentcustomerid_referenceto_contact</clover:element>
+    <yomifullname clover:dataType="java.lang.String">$0.yomifullname</yomifullname>
+    <clover:element clover:name="address1_county" clover:dataType="java.lang.String">$0.address1_county</clover:element>
+    <clover:element clover:name="address2_line1" clover:dataType="java.lang.String">$0.address2_line1</clover:element>
+    <clover:element clover:name="aging90_base" clover:dataType="java.math.BigDecimal">$0.aging90_base</clover:element>
+    <createdbyname clover:dataType="java.lang.String">$0.createdbyname</createdbyname>
+    <mobilephone clover:dataType="java.lang.String">$0.mobilephone</mobilephone>
+    <managerphone clover:dataType="java.lang.String">$0.managerphone</managerphone>
+    <donotsendmm clover:dataType="java.lang.Boolean">$0.donotsendmm</donotsendmm>
+    <preferredcontactmethodcode clover:dataType="java.lang.Integer">$0.preferredcontactmethodcode</preferredcontactmethodcode>
+    <clover:element clover:name="modifiedby_referenceto_systemuser" clover:dataType="java.lang.String">$0.modifiedby_referenceto_systemuser</clover:element>
+    <clover:element clover:name="address3_city" clover:dataType="java.lang.String">$0.address3_city</clover:element>
+    <mastercontactidyominame clover:dataType="java.lang.String">$0.mastercontactidyominame</mastercontactidyominame>
+    <yomifirstname clover:dataType="java.lang.String">$0.yomifirstname</yomifirstname>
+    <clover:element clover:name="address1_name" clover:dataType="java.lang.String">$0.address1_name</clover:element>
+    <externaluseridentifier clover:dataType="java.lang.String">$0.externaluseridentifier</externaluseridentifier>
+    <clover:element clover:name="address1_telephone1" clover:dataType="java.lang.String">$0.address1_telephone1</clover:element>
+    <clover:element clover:name="address1_postalcode" clover:dataType="java.lang.String">$0.address1_postalcode</clover:element>
+    <clover:element clover:name="preferredequipmentid_referenceto_equipment" clover:dataType="java.lang.String">$0.preferredequipmentid_referenceto_equipment</clover:element>
+    <nickname clover:dataType="java.lang.String">$0.nickname</nickname>
+    <clover:element clover:name="address3_country" clover:dataType="java.lang.String">$0.address3_country</clover:element>
+    <preferredequipmentidname clover:dataType="java.lang.String">$0.preferredequipmentidname</preferredequipmentidname>
+    <clover:element clover:name="address2_addresstypecode" clover:dataType="java.lang.Integer">$0.address2_addresstypecode</clover:element>
+    <customertypecode clover:dataType="java.lang.Integer">$0.customertypecode</customertypecode>
+    <statecode clover:dataType="java.lang.Integer">$0.statecode</statecode>
+    <isbackofficecustomer clover:dataType="java.lang.Boolean">$0.isbackofficecustomer</isbackofficecustomer>
+    <utcconversiontimezonecode clover:dataType="java.lang.Integer">$0.utcconversiontimezonecode</utcconversiontimezonecode>
+    <clover:element clover:name="address3_line2" clover:dataType="java.lang.String">$0.address3_line2</clover:element>
+    <lastusedincampaign clover:dataType="java.util.Calendar">$0.lastusedincampaign</lastusedincampaign>
+    <employeeid clover:dataType="java.lang.String">$0.employeeid</employeeid>
+    <participatesinworkflow clover:dataType="java.lang.Boolean">$0.participatesinworkflow</participatesinworkflow>
+    <owneridyominame clover:dataType="java.lang.String">$0.owneridyominame</owneridyominame>
+    <clover:element clover:name="address3_longitude" clover:dataType="java.lang.Double">$0.address3_longitude</clover:element>
+    <department clover:dataType="java.lang.String">$0.department</department>
+    <parentcustomeridtype clover:dataType="java.lang.String">$0.parentcustomeridtype</parentcustomeridtype>
+    <donotpostalmail clover:dataType="java.lang.Boolean">$0.donotpostalmail</donotpostalmail>
+    <clover:element clover:name="address2_postofficebox" clover:dataType="java.lang.String">$0.address2_postofficebox</clover:element>
+    <clover:element clover:name="owningbusinessunit_referenceto_businessunit" clover:dataType="java.lang.String">$0.owningbusinessunit_referenceto_businessunit</clover:element>
+    <accountrolecode clover:dataType="java.lang.Integer">$0.accountrolecode</accountrolecode>
+    <statuscode clover:dataType="java.lang.Integer">$0.statuscode</statuscode>
+    <clover:element clover:name="address2_country" clover:dataType="java.lang.String">$0.address2_country</clover:element>
+    <clover:element clover:name="address3_telephone3" clover:dataType="java.lang.String">$0.address3_telephone3</clover:element>
+    <clover:element clover:name="address2_addressid" clover:dataType="java.lang.String">$0.address2_addressid</clover:element>
+    <clover:element clover:name="address2_latitude" clover:dataType="java.lang.Double">$0.address2_latitude</clover:element>
+    <aging60 clover:dataType="java.math.BigDecimal">$0.aging60</aging60>
+    <childrensnames clover:dataType="java.lang.String">$0.childrensnames</childrensnames>
+    <clover:element clover:name="address1_line1" clover:dataType="java.lang.String">$0.address1_line1</clover:element>
+    <clover:element clover:name="address3_latitude" clover:dataType="java.lang.Double">$0.address3_latitude</clover:element>
+    <modifiedbyyominame clover:dataType="java.lang.String">$0.modifiedbyyominame</modifiedbyyominame>
+    <modifiedonbehalfbyyominame clover:dataType="java.lang.String">$0.modifiedonbehalfbyyominame</modifiedonbehalfbyyominame>
+    <parentcustomeridname clover:dataType="java.lang.String">$0.parentcustomeridname</parentcustomeridname>
+    <overriddencreatedon clover:dataType="java.util.Calendar">$0.overriddencreatedon</overriddencreatedon>
+    <clover:element clover:name="address1_telephone2" clover:dataType="java.lang.String">$0.address1_telephone2</clover:element>
+    <clover:element clover:name="address3_postalcode" clover:dataType="java.lang.String">$0.address3_postalcode</clover:element>
+    <clover:element clover:name="address2_city" clover:dataType="java.lang.String">$0.address2_city</clover:element>
+    <clover:element clover:name="address3_shippingmethodcode" clover:dataType="java.lang.Integer">$0.address3_shippingmethodcode</clover:element>
+    <home2 clover:dataType="java.lang.String">$0.home2</home2>
+    <clover:element clover:name="parentcontactid_referenceto_contact" clover:dataType="java.lang.String">$0.parentcontactid_referenceto_contact</clover:element>
+    <clover:element clover:name="address3_fax" clover:dataType="java.lang.String">$0.address3_fax</clover:element>
+    <clover:element clover:name="owninguser_referenceto_systemuser" clover:dataType="java.lang.String">$0.owninguser_referenceto_systemuser</clover:element>
+    <clover:element clover:name="address2_utcoffset" clover:dataType="java.lang.Integer">$0.address2_utcoffset</clover:element>
+    <creditonhold clover:dataType="java.lang.Boolean">$0.creditonhold</creditonhold>
+    <clover:element clover:name="address3_addresstypecode" clover:dataType="java.lang.Integer">$0.address3_addresstypecode</clover:element>
+    <assistantphone clover:dataType="java.lang.String">$0.assistantphone</assistantphone>
+    <haschildrencode clover:dataType="java.lang.Integer">$0.haschildrencode</haschildrencode>
+    <parentcustomeridyominame clover:dataType="java.lang.String">$0.parentcustomeridyominame</parentcustomeridyominame>
+    <ownerid clover:dataType="java.lang.String">$0.ownerid</ownerid>
+    <clover:element clover:name="address2_longitude" clover:dataType="java.lang.Double">$0.address2_longitude</clover:element>
+    <transactioncurrencyidname clover:dataType="java.lang.String">$0.transactioncurrencyidname</transactioncurrencyidname>
+    <clover:element clover:name="address1_city" clover:dataType="java.lang.String">$0.address1_city</clover:element>
+    <clover:element clover:name="address1_addressid" clover:dataType="java.lang.String">$0.address1_addressid</clover:element>
+    <annualincome clover:dataType="java.math.BigDecimal">$0.annualincome</annualincome>
+    <governmentid clover:dataType="java.lang.String">$0.governmentid</governmentid>
+    <clover:element clover:name="address1_country" clover:dataType="java.lang.String">$0.address1_country</clover:element>
+    <assistantname clover:dataType="java.lang.String">$0.assistantname</assistantname>
+    <business2 clover:dataType="java.lang.String">$0.business2</business2>
+    <telephone2 clover:dataType="java.lang.String">$0.telephone2</telephone2>
+    <territorycode clover:dataType="java.lang.Integer">$0.territorycode</territorycode>
+    <donotphone clover:dataType="java.lang.Boolean">$0.donotphone</donotphone>
+    <clover:element clover:name="address1_shippingmethodcode" clover:dataType="java.lang.Integer">$0.address1_shippingmethodcode</clover:element>
+    <paymenttermscode clover:dataType="java.lang.Integer">$0.paymenttermscode</paymenttermscode>
+    <clover:element clover:name="address2_line3" clover:dataType="java.lang.String">$0.address2_line3</clover:element>
+    <fullname clover:dataType="java.lang.String">$0.fullname</fullname>
+    <clover:element clover:name="address1_line2" clover:dataType="java.lang.String">$0.address1_line2</clover:element>
+    <description clover:dataType="java.lang.String">$0.description</description>
+    <defaultpricelevelidname clover:dataType="java.lang.String">$0.defaultpricelevelidname</defaultpricelevelidname>
+    <emailaddress3 clover:dataType="java.lang.String">$0.emailaddress3</emailaddress3>
+    <gendercode clover:dataType="java.lang.Integer">$0.gendercode</gendercode>
+    <clover:element clover:name="address2_fax" clover:dataType="java.lang.String">$0.address2_fax</clover:element>
+    <clover:element clover:name="address2_freighttermscode" clover:dataType="java.lang.Integer">$0.address2_freighttermscode</clover:element>
+    <clover:element clover:name="address2_telephone2" clover:dataType="java.lang.String">$0.address2_telephone2</clover:element>
+    <createdonbehalfbyname clover:dataType="java.lang.String">$0.createdonbehalfbyname</createdonbehalfbyname>
+    <contactid clover:dataType="java.lang.String">$0.contactid</contactid>
+    <clover:element clover:name="preferredsystemuserid_referenceto_systemuser" clover:dataType="java.lang.String">$0.preferredsystemuserid_referenceto_systemuser</clover:element>
+    <clover:element clover:name="modifiedonbehalfby_referenceto_systemuser" clover:dataType="java.lang.String">$0.modifiedonbehalfby_referenceto_systemuser</clover:element>
+    <clover:element clover:name="address2_composite" clover:dataType="java.lang.String">$0.address2_composite</clover:element>
+    <birthdate clover:dataType="java.util.Calendar">$0.birthdate</birthdate>
+    <clover:element clover:name="address1_stateorprovince" clover:dataType="java.lang.String">$0.address1_stateorprovince</clover:element>
+    <preferredsystemuseridyominame clover:dataType="java.lang.String">$0.preferredsystemuseridyominame</preferredsystemuseridyominame>
+    <pager clover:dataType="java.lang.String">$0.pager</pager>
+    <preferredsystemuseridname clover:dataType="java.lang.String">$0.preferredsystemuseridname</preferredsystemuseridname>
+    <familystatuscode clover:dataType="java.lang.Integer">$0.familystatuscode</familystatuscode>
+    <emailaddress2 clover:dataType="java.lang.String">$0.emailaddress2</emailaddress2>
+    <clover:element clover:name="address1_upszone" clover:dataType="java.lang.String">$0.address1_upszone</clover:element>
+    <stageid clover:dataType="java.lang.String">$0.stageid</stageid>
+    <salutation clover:dataType="java.lang.String">$0.salutation</salutation>
+    <clover:element clover:name="address1_fax" clover:dataType="java.lang.String">$0.address1_fax</clover:element>
+    <clover:element clover:name="address3_line3" clover:dataType="java.lang.String">$0.address3_line3</clover:element>
+    <createdon clover:dataType="java.util.Calendar">$0.createdon</createdon>
+    <clover:element clover:name="address1_postofficebox" clover:dataType="java.lang.String">$0.address1_postofficebox</clover:element>
+    <customersizecode clover:dataType="java.lang.Integer">$0.customersizecode</customersizecode>
+    <owneridname clover:dataType="java.lang.String">$0.owneridname</owneridname>
+    <versionnumber clover:dataType="java.lang.Long">$0.versionnumber</versionnumber>
+    <clover:element clover:name="address3_county" clover:dataType="java.lang.String">$0.address3_county</clover:element>
+    <clover:element clover:name="address3_telephone1" clover:dataType="java.lang.String">$0.address3_telephone1</clover:element>
+    <processid clover:dataType="java.lang.String">$0.processid</processid>
+    <clover:element clover:name="transactioncurrencyid_referenceto_transactioncurrency" clover:dataType="java.lang.String">$0.transactioncurrencyid_referenceto_transactioncurrency</clover:element>
+    <parentcontactidname clover:dataType="java.lang.String">$0.parentcontactidname</parentcontactidname>
+    <telephone3 clover:dataType="java.lang.String">$0.telephone3</telephone3>
+    <clover:element clover:name="masterid_referenceto_contact" clover:dataType="java.lang.String">$0.masterid_referenceto_contact</clover:element>
+    <clover:element clover:name="aging60_base" clover:dataType="java.math.BigDecimal">$0.aging60_base</clover:element>
+    <clover:element clover:name="address3_line1" clover:dataType="java.lang.String">$0.address3_line1</clover:element>
+    <entityimageid clover:dataType="java.lang.String">$0.entityimageid</entityimageid>
+    <merged clover:dataType="java.lang.Boolean">$0.merged</merged>
+    <clover:element clover:name="address2_stateorprovince" clover:dataType="java.lang.String">$0.address2_stateorprovince</clover:element>
+    <donotemail clover:dataType="java.lang.Boolean">$0.donotemail</donotemail>
+    <modifiedon clover:dataType="java.util.Calendar">$0.modifiedon</modifiedon>
+    <clover:element clover:name="address3_primarycontactname" clover:dataType="java.lang.String">$0.address3_primarycontactname</clover:element>
+    <fax clover:dataType="java.lang.String">$0.fax</fax>
+    <preferredappointmentdaycode clover:dataType="java.lang.Integer">$0.preferredappointmentdaycode</preferredappointmentdaycode>
+    <clover:element clover:name="originatingleadid_referenceto_lead" clover:dataType="java.lang.String">$0.originatingleadid_referenceto_lead</clover:element>
+    <lastname clover:dataType="java.lang.String">$0.lastname</lastname>
+    <anniversary clover:dataType="java.util.Calendar">$0.anniversary</anniversary>
+    <clover:element clover:name="address1_telephone3" clover:dataType="java.lang.String">$0.address1_telephone3</clover:element>
+    <createdbyyominame clover:dataType="java.lang.String">$0.createdbyyominame</createdbyyominame>
+    <clover:element clover:name="address1_primarycontactname" clover:dataType="java.lang.String">$0.address1_primarycontactname</clover:element>
+    <donotbulkpostalmail clover:dataType="java.lang.Boolean">$0.donotbulkpostalmail</donotbulkpostalmail>
+    <clover:element clover:name="address3_upszone" clover:dataType="java.lang.String">$0.address3_upszone</clover:element>
+    <modifiedbyname clover:dataType="java.lang.String">$0.modifiedbyname</modifiedbyname>
+    <numberofchildren clover:dataType="java.lang.Integer">$0.numberofchildren</numberofchildren>
+    <shippingmethodcode clover:dataType="java.lang.Integer">$0.shippingmethodcode</shippingmethodcode>
+    <yomilastname clover:dataType="java.lang.String">$0.yomilastname</yomilastname>
+    <firstname clover:dataType="java.lang.String">$0.firstname</firstname>
+    <clover:element clover:name="address3_addressid" clover:dataType="java.lang.String">$0.address3_addressid</clover:element>
+    <clover:element clover:name="address2_postalcode" clover:dataType="java.lang.String">$0.address2_postalcode</clover:element>
+    <websiteurl clover:dataType="java.lang.String">$0.websiteurl</websiteurl>
+    <parentcontactidyominame clover:dataType="java.lang.String">$0.parentcontactidyominame</parentcontactidyominame>
+    <accountidname clover:dataType="java.lang.String">$0.accountidname</accountidname>
+    <telephone1 clover:dataType="java.lang.String">$0.telephone1</telephone1>
+    <clover:element clover:name="entityimage_timestamp" clover:dataType="java.lang.Long">$0.entityimage_timestamp</clover:element>
+    <callback clover:dataType="java.lang.String">$0.callback</callback>
+    <mastercontactidname clover:dataType="java.lang.String">$0.mastercontactidname</mastercontactidname>
+    <donotbulkemail clover:dataType="java.lang.Boolean">$0.donotbulkemail</donotbulkemail>
+    <clover:element clover:name="address1_freighttermscode" clover:dataType="java.lang.Integer">$0.address1_freighttermscode</clover:element>
+    <clover:element clover:name="preferredserviceid_referenceto_service" clover:dataType="java.lang.String">$0.preferredserviceid_referenceto_service</clover:element>
+    <jobtitle clover:dataType="java.lang.String">$0.jobtitle</jobtitle>
+    <clover:element clover:name="owningteam_referenceto_team" clover:dataType="java.lang.String">$0.owningteam_referenceto_team</clover:element>
+    <accountidyominame clover:dataType="java.lang.String">$0.accountidyominame</accountidyominame>
+    <clover:element clover:name="address1_utcoffset" clover:dataType="java.lang.Integer">$0.address1_utcoffset</clover:element>
+    <clover:element clover:name="address2_telephone1" clover:dataType="java.lang.String">$0.address2_telephone1</clover:element>
+    <creditlimit clover:dataType="java.math.BigDecimal">$0.creditlimit</creditlimit>
+    <suffix clover:dataType="java.lang.String">$0.suffix</suffix>
+    <timezoneruleversionnumber clover:dataType="java.lang.Integer">$0.timezoneruleversionnumber</timezoneruleversionnumber>
+    <subscriptionid clover:dataType="java.lang.String">$0.subscriptionid</subscriptionid>
+    <clover:element clover:name="address3_utcoffset" clover:dataType="java.lang.Integer">$0.address3_utcoffset</clover:element>
+    <clover:element clover:name="address3_composite" clover:dataType="java.lang.String">$0.address3_composite</clover:element>
+    <leadsourcecode clover:dataType="java.lang.Integer">$0.leadsourcecode</leadsourcecode>
+    <clover:element clover:name="address2_telephone3" clover:dataType="java.lang.String">$0.address2_telephone3</clover:element>
+    <clover:element clover:name="address3_name" clover:dataType="java.lang.String">$0.address3_name</clover:element>
+    <clover:element clover:name="accountid_referenceto_account" clover:dataType="java.lang.String">$0.accountid_referenceto_account</clover:element>
+    <educationcode clover:dataType="java.lang.Integer">$0.educationcode</educationcode>
+    <preferredappointmenttimecode clover:dataType="java.lang.Integer">$0.preferredappointmenttimecode</preferredappointmenttimecode>
+    <preferredserviceidname clover:dataType="java.lang.String">$0.preferredserviceidname</preferredserviceidname>
+    <modifiedonbehalfbyname clover:dataType="java.lang.String">$0.modifiedonbehalfbyname</modifiedonbehalfbyname>
+    <originatingleadidname clover:dataType="java.lang.String">$0.originatingleadidname</originatingleadidname>
+    <traversedpath clover:dataType="java.lang.String">$0.traversedpath</traversedpath>
+    <clover:element clover:name="createdonbehalfby_referenceto_systemuser" clover:dataType="java.lang.String">$0.createdonbehalfby_referenceto_systemuser</clover:element>
+    <clover:element clover:name="entityimage_url" clover:dataType="java.lang.String">$0.entityimage_url</clover:element>
+    <clover:element clover:name="address1_longitude" clover:dataType="java.lang.Double">$0.address1_longitude</clover:element>
+    <clover:element clover:name="address2_name" clover:dataType="java.lang.String">$0.address2_name</clover:element>
+    <clover:element clover:name="aging30_base" clover:dataType="java.math.BigDecimal">$0.aging30_base</clover:element>
+    <originatingleadidyominame clover:dataType="java.lang.String">$0.originatingleadidyominame</originatingleadidyominame>
+    <clover:element clover:name="address2_shippingmethodcode" clover:dataType="java.lang.Integer">$0.address2_shippingmethodcode</clover:element>
+    <owneridtype clover:dataType="java.lang.String">$0.owneridtype</owneridtype>
+    <clover:element clover:name="address1_composite" clover:dataType="java.lang.String">$0.address1_composite</clover:element>
+    <spousesname clover:dataType="java.lang.String">$0.spousesname</spousesname>
+    <clover:element clover:name="creditlimit_base" clover:dataType="java.math.BigDecimal">$0.creditlimit_base</clover:element>
+    <managername clover:dataType="java.lang.String">$0.managername</managername>
+    <clover:element clover:name="address2_upszone" clover:dataType="java.lang.String">$0.address2_upszone</clover:element>
+    <emailaddress1 clover:dataType="java.lang.String">$0.emailaddress1</emailaddress1>
+    <clover:element clover:name="address2_primarycontactname" clover:dataType="java.lang.String">$0.address2_primarycontactname</clover:element>
+    <clover:element clover:name="annualincome_base" clover:dataType="java.math.BigDecimal">$0.annualincome_base</clover:element>
+    <clover:element clover:name="address3_telephone2" clover:dataType="java.lang.String">$0.address3_telephone2</clover:element>
+  </item>
+</clover:collection>]]></attr>
 <attr name="_data_format"><![CDATA[MAP]]></attr>
 <attr name="__metadata"><![CDATA[true]]></attr>
 </Node>
-<Edge debugMode="true" fromNode="BEAN_READER0:0" guiBendpoints="" id="Edge0" inPort="Port 0 (in)" metadata="45eac628-9743-490b-97e9-0547c7a58b2a" outPort="Port 0 (out)" toNode="FOREACH_SFDC_CONTACT_CONTACT:0"/>
-<Edge debugMode="true" fromNode="FOREACH_SFDC_CONTACT_CONTACT:0" guiBendpoints="" id="Edge1" inPort="Port 0 (in)" metadata="eb02a42b-eb06-4d51-93f4-a124df504988" outPort="Port 0 (out)" toNode="MAP_WRITER0:0"/>
+<Edge debugMode="true" fromNode="BEAN_READER0:0" guiBendpoints="" id="Edge0" inPort="Port 0 (in)" metadata="28abc68e-1440-482e-913c-61cb554980dd" outPort="Port 0 (out)" toNode="FOREACH_CONTACTS_IN_SFDC_CONTACT:0"/>
+<Edge debugMode="true" fromNode="FOREACH_CONTACTS_IN_SFDC_CONTACT:0" guiBendpoints="" id="Edge1" inPort="Port 0 (in)" metadata="46c9a142-ff94-4aac-8d02-8a96077cb3ea" outPort="Port 0 (out)" toNode="MAP_WRITER0:0"/>
 </Phase>
 </Graph>
