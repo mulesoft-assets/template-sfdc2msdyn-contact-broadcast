@@ -38,7 +38,7 @@ http://www.springframework.org/schema/beans http://www.springframework.org/schem
                         <data-mapper:input-arguments>
                         </data-mapper:input-arguments>
                     </data-mapper:transform> 
-                    <dynamicscrm:update-multiple config-ref="Microsoft_Dynamics_CRM"  logicalName="contact" doc:name="Update Contact" >
+                    <dynamicscrm:update-multiple config-ref="Microsoft_Dynamics_CRM"  logicalName="contact" doc:name="Update Contacts" >
                         <dynamicscrm:attributes-list ref="#[payload]"/>
                     </dynamicscrm:update-multiple>
 					<logger message="Update Dynamics CRM response: #[payload]"
