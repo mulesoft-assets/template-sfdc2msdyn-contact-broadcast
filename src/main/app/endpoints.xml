@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<mule xmlns:batch="http://www.mulesoft.org/schema/mule/batch"
+<mule xmlns:spring="http://www.springframework.org/schema/beans" xmlns:batch="http://www.mulesoft.org/schema/mule/batch"
 	xmlns:sfdc="http://www.mulesoft.org/schema/mule/sfdc"
 	xmlns="http://www.mulesoft.org/schema/mule/core"
 	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
@@ -8,10 +8,11 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
 http://www.mulesoft.org/schema/mule/sfdc http://www.mulesoft.org/schema/mule/sfdc/current/mule-sfdc.xsd
-http://www.mulesoft.org/schema/mule/batch http://www.mulesoft.org/schema/mule/batch/current/mule-batch.xsd">
+http://www.mulesoft.org/schema/mule/batch http://www.mulesoft.org/schema/mule/batch/current/mule-batch.xsd
+http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-current.xsd">
     <flow name="triggerFlow" initialState="started"
 		processingStrategy="synchronous" >
-		<poll doc:name="Polls Salesforce for Contacts">
+		<poll doc:name="Poll Salesforce for Contacts">
 			<fixed-frequency-scheduler frequency="${poll.frequencyMillis}"
 				startDelay="${poll.startDelayMillis}" />
 			<watermark variable="lastQueryDate" default-expression="${watermark.default.expression}"

@@ -28,7 +28,7 @@ Please review the terms of the license before downloading and using this templat
 # Use Case <a name="usecase"/>
 As a Salesforce admin I want to synchronize Contacts between Salesfoce and MS Dynamics.
 
-This Template should serve as a foundation for setting an online sync of Contacts from SalesForce instance to MS Dynamics instance. Everytime there is a new Contact or a change in an already existing one, the integration will poll for changes in SalesForce source instance and it will be responsible for creating or updating the Contact in the target MS Dynamics instance.
+This Template should serve as a foundation for setting an online sync of Contacts from SalesForce instance to MS Dynamics instance. Every time there is a new Contact or a change in an already existing one, the integration will poll for changes in SalesForce source instance and it will be responsible for creating or updating the Contact in the target MS Dynamics instance.
 
 Requirements have been set not only to be used as examples, but also to establish a starting point to adapt your integration to your requirements.
 
@@ -176,7 +176,7 @@ In order to use this Mule Anypoint Template you need to configure properties (Cr
 + msdyn.url `https://{your MS Dynamics url}`
 
 # API Calls <a name="apicalls"/>
-Salesforce imposes limits on the number of API Calls that can be made. However, we make API call to Salesforce only once during migration, so this is not something to worry about.
+Salesforce imposes limits on the number of API Calls that can be made. However, in this template, only one call per poll cycle is done to retrieve all the information required.
 
 
 # Customize It!<a name="customizeit"/>
