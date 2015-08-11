@@ -130,7 +130,7 @@ public class BusinessLogicIT extends AbstractTemplateTestCase {
 		// run the main migration flow
 		runSchedulersOnce(POLL_FLOW_NAME);
 		waitForPollToRun();
-		helper.awaitJobTermination(TIMEOUT_SECONDS * 1000, 500);
+		helper.awaitJobTermination(TIMEOUT_SECONDS * 1000*2, 500);
 		helper.assertJobWasSuccessful();
 
 		MuleEvent event = retrieveContactFromMSDYNFlow.process(getTestEvent(
