@@ -4,13 +4,13 @@
 	<parent>
 		<groupId>org.mule.templates</groupId>
 		<artifactId>templates-tooling-parent-pom</artifactId>
-		<version>1.1.9</version>
+		<version>1.2.2</version>
 	</parent>
 
 	<modelVersion>4.0.0</modelVersion>
 	<artifactId>template-sfdc2msdyn-contact-broadcast</artifactId>
 	<packaging>mule</packaging>
-	<version>1.1.2-SNAPSHOT</version>
+	<version>1.2.0-SNAPSHOT</version>
 	<name>template-sfdc2msdyn-contact-broadcast Mule Anypoint Template Project</name>
 
 	<scm>
@@ -38,9 +38,9 @@
                         </inclusion>
                     </inclusions>
 				</configuration>
-			</plugin>
-		</plugins>
-	</build>
+			</plugin>		
+        </plugins>
+    </build>
 
 	<dependencies>
 		
@@ -53,12 +53,6 @@
             <groupId>org.mule.modules</groupId>
             <artifactId>mule-module-ms-dynamics-crm</artifactId>
             <version>${msdyn.version}</version>
-        </dependency>
-    <dependency>
-            <groupId>com.mulesoft.muleesb.modules</groupId>
-            <artifactId>mule-module-data-mapper</artifactId>
-            <version>${mule.version}</version>
-            <scope>provided</scope>
         </dependency>
     <dependency>
             <groupId>org.mule.modules</groupId>
@@ -79,6 +73,12 @@
 			<id>mulesoft-snapshots</id>
 			<name>MuleSoft Snapshots Repository</name>
 			<url>https://repository.mulesoft.org/nexus/content/repositories/snapshots/</url>
+			<layout>default</layout>
+		</repository>
+		<repository>
+			<id>mule-ee-releases</id>
+			<name>MuleSoft Releases EE Repository</name>
+			<url>https://repository.mulesoft.org/nexus/content/repositories/releases-ee/</url>
 			<layout>default</layout>
 		</repository>
 	</repositories>

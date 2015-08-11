@@ -1,22 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<mule xmlns:spring="http://www.springframework.org/schema/beans" xmlns:dynamicscrm="http://www.mulesoft.org/schema/mule/dynamicscrm"
-	xmlns:data-mapper="http://www.mulesoft.org/schema/mule/ee/data-mapper"
+<mule xmlns:dw="http://www.mulesoft.org/schema/mule/ee/dw" xmlns:spring="http://www.springframework.org/schema/beans" xmlns:dynamicscrm="http://www.mulesoft.org/schema/mule/dynamicscrm"
 	xmlns:core="http://www.mulesoft.org/schema/mule/core"
 	xmlns="http://www.mulesoft.org/schema/mule/core" 
 	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
 	xmlns:batch="http://www.mulesoft.org/schema/mule/batch"
 	xmlns:json="http://www.mulesoft.org/schema/mule/json"
-	version="EE-3.6.2"
+	version="EE-3.7.1"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
 http://www.mulesoft.org/schema/mule/batch http://www.mulesoft.org/schema/mule/batch/current/mule-batch.xsd
 http://www.mulesoft.org/schema/mule/json http://www.mulesoft.org/schema/mule/json/current/mule-json.xsd
-http://www.mulesoft.org/schema/mule/ee/data-mapper http://www.mulesoft.org/schema/mule/ee/data-mapper/current/mule-data-mapper.xsd
 http://www.mulesoft.org/schema/mule/dynamicscrm http://www.mulesoft.org/schema/mule/dynamicscrm/current/mule-dynamicscrm.xsd
-http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-current.xsd">
-    <data-mapper:config name="Map_To_List_contact_" transformationGraphPath="map_to_list_contact_.grf" doc:name="Map_To_List_contact_"/>
-    <data-mapper:config name="Map_To_List_contact__1" transformationGraphPath="map_to_list_contact__1.grf" doc:name="Map_To_List_contact__1"/>
+http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-current.xsd
+http://www.mulesoft.org/schema/mule/ee/dw http://www.mulesoft.org/schema/mule/ee/dw/current/dw.xsd">
+
 
 
 	<batch:job name="migrateContactsBatch">
@@ -24,20 +22,34 @@ http://www.springframework.org/schema/beans http://www.springframework.org/schem
 
 		<batch:process-records>
 			<batch:step name="getContactFromDynamicsCrmStep">
-				<enricher doc:name="store in recordVar 'msdynContact'"
-					source="#[payload.size() == 0 ? NullPayload.getInstance() : payload.next()]" target="#[recordVars['msdynContact']]">
+				<enricher doc:name="store existing Id in payload 'Id'"
+					source="#[payload.size() == 0 ? null : payload.next()['contactid']]" target="#[payload.Id]">
                     <dynamicscrm:retrieve-multiple-by-query config-ref="Microsoft_Dynamics_CRM" query="dsql:SELECT fullname,contactid FROM contact WHERE fullname = '#[payload[&quot;Name&quot;]]'" doc:name="Query Microsoft Dynamics CRM for Contact"/>
 				</enricher>
 			</batch:step>
 			
-			<batch:step name="updateContactsInDynamicsCrmStep" accept-expression="!(recordVars['msdynContact'] is NullPayload)">
-                <expression-component doc:name="Set contactId for MS Dynamics Contact"><![CDATA[payload.put("Id",recordVars['msdynContact']['contactid']);]]></expression-component>
+			<batch:step name="updateContactsInDynamicsCrmStep" accept-expression="payload['Id'] != null">
+
 
  				<batch:commit size="2" doc:name="Batch Commit">
-                    <data-mapper:transform config-ref="Map_To_List_contact_" doc:name="Salesforce Contacts to Ms Dynamics Contacts">
-                        <data-mapper:input-arguments>
-                        </data-mapper:input-arguments>
-                    </data-mapper:transform> 
+                    <dw:transform-message doc:name="Transofrm Salesforce Contacts to MS Dynamics Contacts List">
+                        <dw:set-payload><![CDATA[%dw 1.0
+%input payload application/java
+%output application/java
+---
+payload map {
+	emailaddress1 : $.Email,
+	fullname : $.Name,
+	modifiedon : now,
+	fax : $.Fax,
+	telephone1 : $.Phone,
+	firstname : $.FirstName,
+	lastname : $.LastName,
+	description : $.Description,
+	contactid : $.Id
+}]]></dw:set-payload>
+                    </dw:transform-message>
+ 
                     <dynamicscrm:update-multiple config-ref="Microsoft_Dynamics_CRM"  logicalName="contact" doc:name="Update Contacts" >
                         <dynamicscrm:attributes-list ref="#[payload]"/>
                     </dynamicscrm:update-multiple>
@@ -46,10 +58,26 @@ http://www.springframework.org/schema/beans http://www.springframework.org/schem
  				</batch:commit>
 			</batch:step>
 
-			<batch:step name="insertContactInDynamicsCrmStep" accept-expression="(recordVars['msdynContact'] is NullPayload)">
+			<batch:step name="insertContactInDynamicsCrmStep" accept-expression="payload['Id'] == null">
 
 				<batch:commit size="2" doc:name="Batch Commit">
-                    <data-mapper:transform config-ref="Map_To_List_contact__1" doc:name="Salesforce Contacts to Ms Dynamics Contacts"/>
+                    <dw:transform-message doc:name="Transform Salesforce Contacts to MS Dynamics Contacts List">
+                        <dw:set-payload><![CDATA[%dw 1.0
+%input payload application/java
+%output application/java
+---
+payload map {
+	emailaddress1 : $.Email,
+	fullname : $.Name,
+	modifiedon : now.dateTime,
+	fax : $.Fax,
+	telephone1 : $.Phone,
+	firstname : $.FirstName,
+	lastname : $.LastName,
+	description : $.Description
+}]]></dw:set-payload>
+                    </dw:transform-message>
+
                     <dynamicscrm:create-multiple config-ref="Microsoft_Dynamics_CRM" logicalName="contact" doc:name="Insert Contacts">
                         <dynamicscrm:attributes-list ref="#[payload]"/>
                     </dynamicscrm:create-multiple>
