@@ -34,7 +34,6 @@ http://www.mulesoft.org/schema/mule/ee/dw http://www.mulesoft.org/schema/mule/ee
  				<batch:commit size="2" doc:name="Batch Commit">
                     <dw:transform-message doc:name="Transofrm Salesforce Contacts to MS Dynamics Contacts List">
                         <dw:set-payload><![CDATA[%dw 1.0
-%input payload application/java
 %output application/java
 ---
 payload map {
@@ -63,7 +62,6 @@ payload map {
 				<batch:commit size="2" doc:name="Batch Commit">
                     <dw:transform-message doc:name="Transform Salesforce Contacts to MS Dynamics Contacts List">
                         <dw:set-payload><![CDATA[%dw 1.0
-%input payload application/java
 %output application/java
 ---
 payload map {
