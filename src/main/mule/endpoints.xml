@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:salesforce="http://www.mulesoft.org/schema/mule/salesforce" xmlns:os="http://www.mulesoft.org/schema/mule/os"
+    xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/os http://www.mulesoft.org/schema/mule/os/current/mule-os.xsd
+http://www.mulesoft.org/schema/mule/salesforce http://www.mulesoft.org/schema/mule/salesforce/current/mule-salesforce.xsd">
+    <flow name="schedulerFlow" doc:id="aff4106d-d2f6-4366-940a-a380dcb1cf73">
+        <scheduler doc:name="Scheduler" doc:id="58b7c776-fbee-4753-9bea-f6cc3e037efd">
+            <scheduling-strategy>
+                <fixed-frequency frequency="${scheduler.frequency}" startDelay="${scheduler.start.delay}" />
+            </scheduling-strategy>
+        </scheduler>
+        <flow-ref doc:name="queryFlow" doc:id="ada07859-8839-4751-9623-68a08d31a472" name="queryFlow" />
+        <flow-ref name="businessLogicFlow" doc:name="businessLogicFlow" doc:id="e16bf02c-b833-47de-afd5-2329ce1fab2b" />
+        <error-handler>
+            <on-error-propagate enableNotifications="true" logException="true" doc:name="On Error Propagate"
+                doc:id="488b507d-e26c-4c56-8759-8bb4f6645d71" type="ANY">
+                <flow-ref doc:name="errorHandlingFlow" doc:id="afdaf73c-0137-4d60-84f6-5c41234771a3" name="errorHandlingFlow" />
+            </on-error-propagate>
+        </error-handler>
+    </flow>
+    <flow name="queryFlow">
+        <os:retrieve key="watermark" objectStore="watermarkStore" target="lastQueryTimestamp" doc:name="Retrieve lastQueryTimestamp">
+            <os:default-value><![CDATA[${watermark.default.expression}]]></os:default-value>
+        </os:retrieve>
+        <salesforce:query doc:name="Query Contacts from Salesforce" doc:id="3fdeb10e-125a-40d5-a6ad-fdcf52d92dab"
+            config-ref="Salesforce_Config">
+            <salesforce:salesforce-query> SELECT Id,Name,Email,Phone,Fax,FirstName,LastName,Description, LastModifiedDate FROM Contact WHERE
+                LastModifiedDate &gt; :watermarkDate</salesforce:salesforce-query>
+            <salesforce:parameters><![CDATA[#[output applicaton/java
+---
+{
+	"watermarkDate" : vars.lastQueryTimestamp
+}]]]></salesforce:parameters>
+        </salesforce:query>
+        <logger level="INFO" doc:name="Query contacts from  Salesforce" doc:id="08f68fa6-4350-4e49-86c3-0736bb52ecc1" message="#[output application/json --- payload]" />
+        <os:store key="watermark" failIfPresent="false" failOnNullValue="false" objectStore="watermarkStore" doc:name="Store lastQueryTimestamp">
+            <os:value>#[max(payload map $.LastModifiedDate)]</os:value>
+        </os:store>
+
+    </flow>
+</mule>
+
+
+        
