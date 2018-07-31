@@ -41,7 +41,7 @@ Finally during the *On Complete* stage the Template will log output statistics d
 
 # Considerations <a name="considerations"/>
 
-To make this Anypoint Template run, there are certain preconditions that must be considered. All of them deal with the preparations in both, that must be made in order for all to run smoothly.
+To make this Anypoint Template run, there are certain preconditions that must be considered. All of them deal with the preparations in both, that must be made in order for all to run smoothly. 
 **Failing to do so could lead to unexpected behavior of the template.**
 
 
@@ -115,7 +115,7 @@ First thing to know if you are a newcomer to Mule is where to get the tools.
 
 
 ### Importing an Anypoint Template into Studio
-Mule Studio offers several ways to import a project into the workspace, for instance:
+Mule Studio offers several ways to import a project into the workspace, for instance: 
 
 + Anypoint Studio Project from File System
 + Packaged mule application (.jar)
@@ -128,13 +128,15 @@ Once you have imported you Anypoint Template into Anypoint Studio you need to fo
 
 + Locate the properties file `mule.dev.properties`, in src/main/resources
 + Complete all the properties required as per the examples in the section [Properties to be configured](#propertiestobeconfigured)
-+ Once that is done, right click on you Anypoint Template project folder
++ Once that is done, right click on you Anypoint Template project folder 
 + Hover you mouse over `"Run as"`
-+ Click on  `"Mule Application"`
++ Click on  `"Mule Application (configure)"`
++ Inside the dialog, select Environment and set the variable `"mule.env"` to the value `"dev"`
++ Click `"Run"`
 
 
 ### Running on Mule ESB stand alone <a name="runonmuleesbstandalone"/>
-Complete all properties in one of the property files, for example in [mule.prod.properties] (../master/src/main/resources/mule.prod.properties) and run your app with the corresponding environment variable to use it. To follow the example, this will be `mule.env=prod`.
+Complete all properties in one of the property files, for example in [mule.prod.properties] (../master/src/main/resources/mule.prod.properties) and run your app with the corresponding environment variable to use it. To follow the example, this will be `mule.env=prod`. 
 
 
 ## Running on CloudHub <a name="runoncloudhub"/>
@@ -208,5 +210,8 @@ This file is conformed by a Flow containing the Scheduler that will periodically
 
 
 ## errorHandling.xml<a name="errorhandlingxml"/>
-This is the right place to handle how your integration will react depending on the different exceptions.
+This is the right place to handle how your integration will react depending on the different exceptions. 
 This file holds a [Error Handling](http://www.mulesoft.org/documentation/display/current/Error+Handling) that is referenced by the main flow in the business logic.
+
+
+
