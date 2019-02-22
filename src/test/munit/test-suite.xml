@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:scripting="http://www.mulesoft.org/schema/mule/scripting"
+	xmlns:microsoft-dynamics-crm="http://www.mulesoft.org/schema/mule/microsoft-dynamics-crm" xmlns:salesforce="http://www.mulesoft.org/schema/mule/salesforce"
+	xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:munit="http://www.mulesoft.org/schema/mule/munit" xmlns:munit-tools="http://www.mulesoft.org/schema/mule/munit-tools" xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xsi:schemaLocation="
+		http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+		http://www.mulesoft.org/schema/mule/munit http://www.mulesoft.org/schema/mule/munit/current/mule-munit.xsd
+		http://www.mulesoft.org/schema/mule/munit-tools  http://www.mulesoft.org/schema/mule/munit-tools/current/mule-munit-tools.xsd
+http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd
+http://www.mulesoft.org/schema/mule/salesforce http://www.mulesoft.org/schema/mule/salesforce/current/mule-salesforce.xsd
+http://www.mulesoft.org/schema/mule/microsoft-dynamics-crm http://www.mulesoft.org/schema/mule/microsoft-dynamics-crm/current/mule-microsoft-dynamics-crm.xsd
+http://www.mulesoft.org/schema/mule/scripting http://www.mulesoft.org/schema/mule/scripting/current/mule-scripting.xsd">
+	<munit:config name="test-suite.xml" />
+	<configuration-properties doc:name="Configuration properties" doc:id="6ce56702-7e72-4322-9f03-87d8983d8529" file="mule.test.properties" />
+	<munit:before-test name="test-suiteBefore_Test" description="Before tests actions" doc:id="3c68dbbc-4e91-4242-9b45-64be374abcc2" >
+		<ee:transform doc:name="Prepare test data of contacts in Salesforce" doc:id="050bfdc2-2890-4200-b162-6a7f95b0edd4" >
+			<ee:message />
+			<ee:variables >
+				<ee:set-variable variableName="testContactSfdc1" ><![CDATA[%dw 2.0
+output application/java
+var generateVal = randomInt(100000)
+---
+{
+	FirstName : "MUnitTestFirstName1" ++ " " ++ generateVal,
+	LastName : "MUnitTestLastName1" ++ " " ++ generateVal,
+	Description : "MUnitTestContactDesription1" ++ " " ++ generateVal,
+	Email : p('test.exist.email.msdyn'),
+	Phone : "333-444-5555"
+}]]></ee:set-variable>
+				<ee:set-variable variableName="testContactSfdc2" ><![CDATA[%dw 2.0
+output application/java
+var generateVal = randomInt(100000)
+---
+{
+	FirstName : "MUnitTestFirstName2" ++ " " ++ generateVal,
+	LastName : "MUnitTestLastName2" ++ " " ++ generateVal,
+	Description : "MUnitTestContactDesription2" ++ " " ++ generateVal,
+	Email : p('test.new.email.msdyn'),
+	Phone : "111-222-3333"
+}]]></ee:set-variable>
+			</ee:variables>
+		</ee:transform>
+		<salesforce:create-multiple type="Contact" doc:name="Create test contacts" doc:id="07964259-c3c5-429a-b964-c3c18316d76b" config-ref="Salesforce_Config">
+			<salesforce:records ><![CDATA[#[[vars.testContactSfdc1, vars.testContactSfdc2]]]]></salesforce:records>
+		</salesforce:create-multiple>
+		<set-variable value="#[payload.items map ($.id)]" doc:name="Save contact ids to variable sfdcContactIds" doc:id="6556fb44-508f-4ffe-a2c9-90a946889926" variableName="sfdcContactIds" />
+		<ee:transform doc:name="Prepare test data of contact in MS Dyn" doc:id="b07b2daf-a3d5-4e8c-a5c4-398005591c9e">
+			<ee:message>
+			</ee:message>
+			<ee:variables>
+				<ee:set-variable variableName="testContactMSDyn"><![CDATA[%dw 2.0
+output application/java
+---
+{
+	firstname : vars.testContactSfdc1.FirstName,
+	lastname : vars.testContactSfdc1.LastName,
+	emailaddress1 : p('test.exist.email.msdyn')
+}]]></ee:set-variable>
+			</ee:variables>
+		</ee:transform>
+		<microsoft-dynamics-crm:create logicalName="contact" doc:name="Create test contact" doc:id="1839ee7e-b471-4050-8e97-1285cad96a80" config-ref="Microsoft_Dynamics_CRM_Dynamics_CRM">
+			<microsoft-dynamics-crm:attributes><![CDATA[#[vars.testContactMSDyn]]]></microsoft-dynamics-crm:attributes>
+		</microsoft-dynamics-crm:create>
+	</munit:before-test>
+	<munit:test name="test-suiteTest" description="MUnit Test" doc:id="1f344b82-3a03-4b41-b1d6-a06abe6d791b" >
+		<munit:execution >
+			<flow-ref doc:name="Reference to queryFlow" doc:id="7f6244c6-a52c-44b3-bf02-0fa7571c1baa" name="queryFlow"/>
+			<ee:transform doc:name="Filter test records" doc:id="c623bd85-903b-4199-a957-7322f448055a" >
+				<ee:message >
+					<ee:set-payload ><![CDATA[%dw 2.0
+output application/java
+---
+payload filter ($.Email == p('test.exist.email.msdyn') or $.Email == p('test.new.email.msdyn'))]]></ee:set-payload>
+				</ee:message>
+			</ee:transform>
+			<flow-ref doc:name="Reference to businessLogicFlow" doc:id="80433860-c413-43b1-ae1b-917b29f3dcc0" name="businessLogicFlow"/>
+			<scripting:execute engine="groovy" doc:name="Sleep for 30s until the processing is completed" doc:id="8219f072-3719-41a0-86f0-68139af887b8">
+				<scripting:code>sleep(30000)</scripting:code>
+			</scripting:execute>
+			<ee:transform doc:name="Prepare queries to MS Dyn" doc:id="cc20c151-bc89-4f6a-bc4b-4da0cb35ed9b">
+				<ee:message>
+					<ee:set-payload><![CDATA[%dw 2.0
+output application/java
+---
+[{
+	"query1" : "dsql:SELECT fullname, contactid FROM contact WHERE emailaddress1 = '" ++ p('test.new.email.msdyn') ++ "'"
+},
+{
+	"query2" : "dsql:SELECT telephone1, contactid FROM contact WHERE emailaddress1 = '" ++ p('test.exist.email.msdyn') ++ "'"
+}]]]></ee:set-payload>
+				</ee:message>
+				<ee:variables>
+					<ee:set-variable variableName="contact"><![CDATA[%dw 2.0
+output application/java
+---
+payload]]></ee:set-variable>
+				</ee:variables>
+			</ee:transform>
+			<microsoft-dynamics-crm:retrieve-multiple-by-query doc:name="Execute query to MS Dyn for new contact" doc:id="b1acfd60-64b0-445f-83b7-9574526bc0d1" config-ref="Microsoft_Dynamics_CRM_Dynamics_CRM" target="msdynContactNew" targetValue="#[payload[0]]">
+				<microsoft-dynamics-crm:query><![CDATA[#[payload[0].query1 as String]]]></microsoft-dynamics-crm:query>
+			</microsoft-dynamics-crm:retrieve-multiple-by-query>
+			<microsoft-dynamics-crm:retrieve-multiple-by-query doc:name="Execute query to MS Dyn for exist contact" doc:id="671eca8c-9ace-4555-ae05-08b446dbbcef" config-ref="Microsoft_Dynamics_CRM_Dynamics_CRM" target="msdynContactExist" targetValue="#[payload[0]]">
+				<microsoft-dynamics-crm:query><![CDATA[#[payload[1].query2]]]></microsoft-dynamics-crm:query>
+			</microsoft-dynamics-crm:retrieve-multiple-by-query>
+		</munit:execution>
+		<munit:validation >
+			<munit-tools:assert-that doc:name="Assert that if fullname in msdyn eq name in sfdc" doc:id="3b49ef8b-9083-4807-8971-5e88ff366022" expression="#[vars.msdynContactNew.fullname]" is='#[MunitTools::equalTo(vars.testContactSfdc2.FirstName ++ " " ++ vars.testContactSfdc2.LastName)]' message="The fullname of new contact in msdyn doesnt eq name in sfdc"/>
+			<munit-tools:assert-that doc:name="Assert that if phone of record in msdyn was updated" doc:id="e1477cbb-fe04-49cb-b624-e5cae3fdff08" expression="#[vars.msdynContactExist.telephone1]" is="#[MunitTools::equalTo(vars.testContactSfdc1.Phone)]" message="Record in msdyn was not updated"/>
+		</munit:validation>
+	</munit:test>
+	<munit:after-test name="test-suiteAfter_Test" description="After tests actions" doc:id="33b14a25-c237-46be-8b25-d779d607b8ff" >
+		<salesforce:delete-multiple doc:name="Delete test contacts" doc:id="f350f9b4-d69a-48b6-9e3e-f7513ce3352b" config-ref="Salesforce_Config">
+			<salesforce:delete-ids ><![CDATA[#[vars.sfdcContactIds]]]></salesforce:delete-ids>
+		</salesforce:delete-multiple>
+		<microsoft-dynamics-crm:delete-multiple logicalName="contact" doc:name="Delete test contacts" doc:id="a0be77bb-e3fa-40ce-a339-fa2f93985ffd" config-ref="Microsoft_Dynamics_CRM_Dynamics_CRM" ids="#[[vars.msdynContactNew.contactid, vars.msdynContactExist.contactid]]"/>
+	</munit:after-test>
+</mule>

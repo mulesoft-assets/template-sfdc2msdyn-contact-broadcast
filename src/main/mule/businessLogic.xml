@@ -12,7 +12,7 @@ http://www.mulesoft.org/schema/mule/microsoft-dynamics-crm http://www.mulesoft.o
         <batch:job jobName="migrateContactsBatch" doc:id="204892ae-0d97-4326-beae-310c8d52b7a6" blockSize="100">
             <batch:process-records>
                 <batch:step name="foreachContactInSalesforceGetcontactInMsDynamicsStep" doc:id="89713774-362a-4e92-9bdc-41e31802bf38">
-                    <ee:transform doc:name="Transform Message" doc:id="3e86c1d1-077f-455b-a608-da950c75e677">
+                    <ee:transform doc:name="Prepare query to ms dyn" doc:id="3e86c1d1-077f-455b-a608-da950c75e677">
                         <ee:message>
                             <ee:set-payload><![CDATA[%dw 2.0
 output application/java
